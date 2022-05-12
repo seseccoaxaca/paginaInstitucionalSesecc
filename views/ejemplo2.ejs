@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title>SESECC</title>
+
+
+
+    <!--cdn de jquery-->
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.1/css/dataTables.bootstrap5.min.css">
+    <!--css-->
+    <link rel="stylesheet" type="text/css" href="css/inicio.css" />
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <!--iconos-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <!--font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+        
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="css/dashboard.css" rel="stylesheet">
+
+    <link rel="icon" type="image/png" href="/img/icono.png">
+</head>
+
+<body>
+
+    <header class="navbar navbar-dark sticky-top colorBG4 flex-md-nowrap p-0 shadow-sm">
+        <img class="col-md-3 col-lg-2 py-2 mt-2 mb-2" src="img/SESECC_blancohor.svg" alt="" width="240">
+        <button class="navbar-toggler position-absolute d-md-none collapsed mt-3" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+           <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div type="text" class="col-md-6 col-lg-8 px-3 mt-2 mb-2 text-center" style="color: #ffff">
+            <h3>Plataforma de Capacitación</h3>
+        </div>
+        <div type="text" class="col-md-3 col-lg-2 px-3 mt-md-2 mb-2 text-end">
+            <div class="">
+                <form action="">
+                    <button class=" btn btn-secondary btn-sm " style="background-color: #46AAA6 ;"><i class="bi bi-person-fill"></i> Cerrar Sesion</button>
+                </form>
+            </div>
+
+        </div>
+    </header>
+
+    <div class="container-fluid">
+        <div class="row">
+            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse mt-4">
+                <div class="position-sticky pt-3">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href=""><i class="bi bi-journals h2"></i>
+                                <span data-feather="home"></span> Cursos
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href=""><i class="bi bi-graph-up icon-lateral h2"></i>
+                                <span data-feather="home"></span> Estadisticas
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href=""><i class="bi bi-envelope icon-lateral h2"></i>
+                                <span data-feather="home"></span>Mensajes
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href=""><i class="bi bi-gear icon-lateral h2"></i>
+                                <span data-feather="home"></span>   Configuración
+                            </a>
+                        </li>
+
+
+                    </ul>
+                    <ul class="nav flex-column mb-2">
+
+                        <hr size="3" width="100%" color="black">
+                        <li class="nav-item">
+                            <!-- <a class="nav-link" href="logout"><i class="bi bi-person-circle h2"></i>
+                                 Cerrar sesión
+                            </a> -->
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom" id="Inicio">
+
+                    <h2>Bienvenido:
+
+                        <span class="">Capacitador 1</span>
+
+                    </h2>
+                </div>
+
+
+
+                <div class="d-flex  flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+                    <h4 class="me-4">Comienza a agregar tus cursos </h4>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Nuevo curso
+                      </button>
+                </div>
+                <div class="my-2 border border-ligth rounded p-3">
+                    <h2>Tus cursos creados</h2>
+                    <img src="" alt="">
+                </div>
+
+
+
+                <!-- <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas> -->
+
+            </main>
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Nuevo curso</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+
+                            <form action="/pruebadeciurso" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
+
+                                <div id="divtitulo" class="mb-2">
+                                    <label for="titulo" class="form-label">Nombre del curso</label>
+                                    <input id="curso" name="curso" type="text" class="form-control" tabindex="2" required>
+                                    <div class="invalid-feedback">
+                                        Este campo debe ser llenado
+                                    </div>
+                                </div>
+
+
+                                <div id="divcontenido" class="mb-2">
+                                    <textarea id="contenido" name="contenido" cols="10" rows="4" placeholder="Descripción" class="form-control" required></textarea>
+                                    <div class="invalid-feedback">
+                                        Este campo debe ser llenado
+                                    </div>
+                                </div>
+
+
+
+                                <div>
+                                    <div class="my-1 mx-auto text-center">
+                                        <label for="archivo">Selecciona una imagen de presentación</label>
+                                        <div class="file2 btn btn-light">
+                                            <label for="archivo">Selecciona una imagen</label>
+                                            <input type="file" id="archivo3" name="file" accept="image/jpg, image/jpeg, image/png, image/svg" required>
+                                            <div class="invalid-feedback">
+                                                <h6>¡Por favor seleccione una imagen!</h6>
+                                            </div>
+                                            <h2 class="text-muted"><i class="bi bi-cloud-arrow-up"></i></h2>
+                                            <h5 class="text-muted" id="nombre3">o <br>Suelta los archivos aquí</h5><br>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                    <button type="submit" class="btn btn-primary">Guardar</button>
+                                </div>
+
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <script>
+        let archivo3 = document.querySelector('#archivo3');
+        archivo3.addEventListener('change', () => {
+            document.querySelector('#nombre3').innerText = archivo3.files[0].name
+        })
+    </script>
+
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function() {
+            'use strict'
+
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.querySelectorAll('.needs-validation')
+
+            // Loop over them and prevent submission
+            Array.prototype.slice.call(forms)
+                .forEach(function(form) {
+                    form.addEventListener('submit', function(event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
+    </script>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script>
+    <script src="dashboard.js"></script>
+
+
+</body>
+
+</html>

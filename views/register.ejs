@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="css/inicio.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" href="css/hover.css" />
+    <title>SESECC</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <!-- <link href="css/signin.css" rel="stylesheet"> -->
+</head>
+
+<body>
+    <header class="navbar navbar-dark sticky-top colorBG4 flex-md-nowrap p-0 shadow-sm">
+        <img class="col-md-3 col-lg-2 py-2 mt-2 mb-2" src="img/SESECC_blancohor.svg" alt="" width="240">
+        <button class="navbar-toggler position-absolute d-md-none collapsed mt-3" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+           <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div type="text" class="col-md-6 col-lg-8 px-3 mt-2 mb-2 text-center" style="color: #ffff">
+            <h3></h3>
+        </div>
+        <div type="text" class="col-md-3 col-lg-2 px-3 mt-md-2 mb-2 text-end">
+            <div class="">
+                <a class="btn btn-primary3 btn-sm text-white" href="/admin">Regresar</a>
+            </div>
+
+        </div>
+    </header>
+    <!-- <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">SESECC</a>
+        <div class="navbar-nav">
+            <div class="nav-item text-nowrap">
+                <span class="nav-link">Registrar</span>
+            </div>
+        </div>
+        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+        <a class="btn btn-dark col-md-3 col-lg-2 px-3 mx-3 border-secondary" href="/admin">Regresar</a>
+    </header> -->
+    <br>
+
+    <div class="container border border-secondary shadow-lg mb-4 p-3">
+        <!-- <div class="card-head bg-primary text-white text-center p-2">Resgistrar</div> -->
+        <div class="card-body">
+            <form action="/register" method="POST">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Nombre completo</label>
+                    <input type="text" class="form-control" id="name" name="name">
+                </div>
+                <div class="mb-3">
+                    <label for="user" class="form-label">Usuario</label>
+                    <input type="text" class="form-control" id="user" name="user">
+                </div>
+                <div class="mb-3">
+                    <label for="pass" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="pass" name="pass">
+                </div>
+                <div class="mb-3">
+                    <label for="rol" class="form-label">Rol</label>
+                    <input type="text" class="form-control" id="rol" name="rol">
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                </div>
+                <div class="float-end">
+                    <a href="/admin" class="btn btn-secondary">Cancelar</a>
+                    <input type="submit" class="btn btn-primary " value="Guardar">
+                    <br>
+                </div>
+                <br>
+
+            </form>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

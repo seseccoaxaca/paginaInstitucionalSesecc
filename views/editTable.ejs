@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SESECC</title>
+    <link rel="icon" type="image/png" href="img/icono.png">
+    <!--bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <header class="navbar navbar-dark sticky-top flex-md-nowrap p-0 shadow" style="background-color: #46AAA6;">
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="/selectTable">SESECC</a>
+
+        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+        <a class="btn btn-dark col-md-3 col-lg-2 px-3 mx-3 border-secondary" style="background-color: #46AAA6;" href="/selectTable">Regresar</a>
+    </header>
+
+
+
+
+    <div class="container border border-secondary mt-4 p-4">
+        <div>
+            <% if (user.seccion=='Noticias') { %>
+                <div id="formularioSP" class="card-body">
+                    <form action="/noticias" method="POST" enctype="multipart/form-data">
+
+                        <div id="divtitulo" class="mb-2">
+                            <label for="titulo" class="form-label">Titulo</label>
+                            <input id="titulo" name="titulo" type="text" class="form-control" tabindex="2" value="<%= user.titulo %>">
+
+                        </div>
+
+                        <div id="divcontenido" class="mb-2">
+                            <!-- <label for="contenido" class="form-label">Contenido</label> -->
+                            <textarea id="contenido" name="contenido" cols="30" rows="4" class="form-control"><%= user.contenido %></textarea>
+                            <!-- <input id="contenido" name="contenido" type="text" class="form-select" tabindex="2"> -->
+
+                        </div>
+
+                        <div id="divliga" class="mb-2">
+                            <label for="link" class="form-label">Link/Ruta</label>
+                            <input id="link" name="link" type="link" class="form-control" tabindex="2" value="<%= user.link %>">
+                        </div>
+
+                        <div id="divfecha" class="mb-2">
+                            <label for="fecha" class="form-label">Fecha de publicación</label>
+                            <input id="fecha" name="fecha" type="date" class="form-control" tabindex="2" value="<%= user.fecha %>">
+                        </div>
+                        <div id="divho" class="mb-2" hidden>
+                            <label for="fecha" class="form-label"></label>
+                            <input id="tiempo" name="tiempo" type="text" class="form-control" tabindex="2" value="<%= user.hora %>">
+                        </div>
+
+                        <div class="mb-2">
+                            <label for="file" class="form-label">Si lo desea puede subir una nueva imagen</label><br>
+                            <input type="file" id="file" name="file">
+                            <br>
+                        </div>
+
+                        <div>
+                            <input type="text" id="user" name="user" value="<%= user.user %>" hidden>
+                        </div>
+                        <div>
+                            <input type="text" id="id" name="id" value="<%= user.id %>" hidden>
+                        </div>
+                        <div>
+                            <input type="text" id="seccion" name="seccion" value="<%= user.seccion %>" hidden>
+                        </div>
+                        <div>
+                            <input type="text" id="ruta" name="ruta" value="<%= user.ruta %>" hidden>
+                        </div>
+                        <div>
+                            <input type="text" id="anterior" name="archivoanterior" value="<%= user.archivo %>" hidden>
+                        </div>
+
+
+
+                        <!-- <button type="submit" class="btn btn-primary">Siguiente</button> -->
+                        <div class="float-end">
+                            <a href="/selectTable" class="btn btn-secondary ">Cancelar</a>
+                            <input name="boton" id="boton" type="submit" class="btn btn-primary" style="background-color: #46AAA6;" value="Actualizar información">
+                        </div>
+                        <br>
+                    </form>
+                </div>
+                <% } %>
+        </div>
+
+        <div>
+            <% if (user.seccion==='Marco Normativo') { %>
+                <div id="formularioMN" class="card-body">
+                    <form action="/subirMN" method="POST" enctype="multipart/form-data">
+
+                        <div id="divtipo" class="mb-3">
+                            <label for="tipo" class="form-label">Tipo</label>
+                            <select name="tipo" id="tipo" class="form-select" tabindex="2">
+                                       <option value="<%= user.tipo %>" hidden><%= user.tipo %></option>
+                                       <option value="Internacional">Internacionales</option>
+                                       <option value="Leyes Federales">Leyes Federales</option>
+                                       <option value="Leyes Estatales">Leyes Estatales</option>
+                                       <option value="Decretos">Decretos</option>
+                                       <option value="Reglamentos">Reglamentos</option>
+                                       <option value="Lineamientos">Lineamientos</option>
+                                       <option value="Manuales">Manuales</option>
+                                   </select>
+                        </div>
+
+                        <div id="divdesc" class="mb-3">
+                            <label for="descripcion" class="form-label">Nombre/Descripción</label>
+                            <input id="descripcion" name="descripcion" type="text" class="form-control" value="<%= user.descripcion %>" tabindex="2">
+                            </select>
+                        </div>
+
+                        <div id="divfecha" class="mb-3">
+                            <label for="fecha" class="form-label">Fecha de publicación</label>
+                            <input id="fecha" name="fecha" type="text" class="form-control" value="<%= user.publicacion %>" tabindex="2">
+                            </select>
+                        </div>
+
+                        <div id="divreforma" class="mb-3">
+                            <label for="reforma" class="form-label">Última Reforma</label>
+                            <input id="reforma" name="reforma" type="text" class="form-control" value="<%= user.reforma %>" tabindex="2">
+                            </select>
+                        </div>
+
+                        <!-- <div class="mb-3">
+                            <label for="file" class="form-label">Si lo desea puede subir un nuevo archivo</label><br>
+                            <input type="file" id="file" name="file"><br>
+                        </div> -->
+                        <div class="file1 btn btn-light">
+                            <label for="archivo">Selecciona un archivo</label><br>
+                            <input type="file" accept="application/pdf,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" name="file" id="archivo" multiple required>
+                            <div class="invalid-feedback">
+                                <h6>¡Por favor seleccione un archivo!</h6>
+                            </div>
+                            <!-- <h2 class="text-muted"><i class="bi bi-cloud-arrow-up"></i></h2>
+                            <h5 class="text-muted" id="nombre">o <br>Suelta los archivos aquí</h5><br> -->
+                        </div>
+
+                        <div>
+                            <input type="text" id="user" name="user" value="<%= user.user %>" hidden>
+                        </div>
+                        <div>
+                            <input type="text" id="id" name="id" value="<%= user.id %>" hidden>
+                        </div>
+                        <div>
+                            <input type="text" id="ruta" name="ruta" value="<%= user.ruta %>" hidden>
+                        </div>
+                        <div>
+                            <input type="text" id="anteriorword" name="archivoanteriorword" value="<%= user.word %>">
+                            <input type="text" id="anteriorpdf" name="archivoanteriorpdf" value="<%= user.pdf %>">
+                        </div>
+                        <div>
+                            <input type="text" id="seccion" name="seccion" value="<%= user.seccion %>" hidden>
+                        </div>
+
+                        <div class="float-end">
+                            <a href="/selectTable" class="btn btn-secondary">Cancelar</a>
+                            <input name="boton" id="boton" type="submit" class="btn btn-primary" value="Actualizar informacion" style="background-color: #46AAA6; border-color: #46AAA6;">
+                        </div>
+                        <br>
+
+
+                        <!-- <button type="submit" class="btn btn-primary">Siguiente</button> -->
+
+                    </form>
+                </div>
+                <% } %>
+        </div>
+        <div>
+            <% if (user.seccion==='Actas') { %>
+                <div id="formularioMN" class="card-body">
+                    <form action="/subirActas" method="POST" enctype="multipart/form-data">
+
+                        <div id="divquien" class="mb-3">
+                            <label for="unidad" class="form-label">Unidad</label>
+                            <select name="unidad" id="unidad" class="form-select" tabindex="2">
+                               <option id="comiteCoordinador" value="<%= user.unidad %>" hidden><%= user.unidad %></option>
+                               <option id="comiteCoordinador" value="Comité Coordinador">Comité Coordinador</option>
+                               <option id="organodGobierno" value="Órgano de Gobierno">Órgano de Gobierno</option>
+                               <option id="comisionEjecutiva" value="Comisión Ejecutiva">Comisión Ejecutiva</option>
+                               
+                           </select>
+                        </div>
+                        <div id="divsesion" class="mb-3">
+                            <label for="sesion" class="form-label">Sesion</label>
+                            <select name="sesion" id="sesion" class="form-select" tabindex="2">
+                               <option id="ordinaria" value="<%= user.sesion %>" hidden><%= user.sesion %></option>
+                               <option id="ordinaria" value="Ordinaria">Ordinaria</option>
+                               <option id="extraordinaria" value="Extraordinaria">Extraordinaria</option>
+                               
+                               
+                           </select>
+                        </div>
+
+                        <div id="divdesc" class="mb-3">
+                            <label for="descripcion" class="form-label">Nombre/Descripción</label>
+                            <input id="descripcion" name="descripcion" type="text" class="form-control" value="<%= user.descripcion %>" tabindex="2">
+                            </select>
+                        </div>
+
+                        <div class="row">
+                            <div id="divyear" class="mb-3 col-md-6">
+                                <label for="year" class="form-label">Año</label>
+                                <select name="year" id="year" class="form-select" tabindex="2">
+                                    <option id="2021" value="<%= user.year %>" hidden><%= user.year %></option>
+                                   <option id="2021" value="2021">2021</option>
+                                   <option id="2020" value="2020">2020</option>
+                                   <option id="2019" value="2019">2019</option>
+                                   <option id="2018" value="2018">2018</option>
+                                   
+                               </select>
+                            </div>
+
+                            <div id="divfecha" class="mb-3 col-md-6">
+                                <label for="fecha" class="form-label">Fecha de publicación</label>
+                                <input id="fecha" name="fecha" type="date" class="form-control" value="<%= user.fecha %>" tabindex="2">
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="file" class="form-label">Si lo desea puede subir un nuevo archivo</label><br>
+                            <input type="file" id="file" name="file"><br>
+                        </div>
+
+                        <div>
+                            <input type="text" id="id" name="id" value="<%= user.id %>" hidden>
+                        </div>
+                        <div>
+                            <input type="text" id="user" name="user" value="<%= user.user %>" hidden>
+                        </div>
+                        <div>
+                            <input type="text" id="ruta" name="ruta" value="<%= user.ruta %>" hidden>
+                        </div>
+                        <div>
+                            <input type="text" id="anterior" name="archivoanterior" value="<%= user.archivo %>" hidden>
+                        </div>
+                        <div>
+                            <input type="text" id="seccion" name="seccion" value="<%= user.seccion %>" hidden>
+                        </div>
+
+                        <input name="boton" id="boton" type="submit" class="btn btn-primary" value="Actualizar información">
+
+                        <!-- <button type="submit" class="btn btn-primary">Siguiente</button> -->
+                        <a href="/selectTable" class="btn btn-secondary float-end">Cancelar</a>
+                    </form>
+
+                </div>
+                <% } %>
+        </div>
+
+        <div>
+            <% if (user.seccion==='Informacion Financiera') { %>
+                <div id="formularioIF" class="card-body">
+                    <form action="/subirFinanciera" method="POST" enctype="multipart/form-data">
+
+                        <div id="divtipo" class="mb-3">
+                            <label for="selecttipo" class="form-label">Tipo</label>
+                            <select name="selecttipo" id="selecttipo" class="form-select" tabindex="2">
+                               <option value="<%= user.tipo %>" hidden><%= user.tipo %></option>
+                               <option value="Contable">Contable</option>
+                               <option value="Presupuestaria">Presupuestaria</option>
+                               <option value="Cuenta Pública">Cuenta Pública</option>
+                           </select>
+                        </div>
+                        <div>
+                            <% if (user.tipo==='Presupuestaria') { %>
+                                <div>
+                                    <select name="presu" class="form-select" id="presu">
+                                        <option value="<%= user.presupuestaria %>"hidden ><p><%= user.presupuestaria %></p></option>
+                                        <option value="Estado analítico de ingresos y del ejercicio del presupuesto de egresos">Estado analítico de ingresos y del ejercicio del presupuesto de egresos</option>
+                                         <option value="Programática">Programática</option>
+                                         <option value="Información adicional">Información adicional</option>
+                                         <option value="Ley de disciplina financiera">Ley de disciplina financiera</option>
+                                     </select>
+                                </div>
+                                <% } %>
+                        </div>
+
+
+                        <div id="divyear" class="mb-3">
+                            <label for="year" class="form-label">Año</label>
+                            <select name="year" id="year" class="form-select" tabindex="2">
+                               <option value="<%= user.year %>" hidden><%= user.year %></option>
+                               <option id="2021" value="2021">2021</option>
+                               <option id="2020" value="2020">2020</option>
+                               <option id="2019" value="2019">2019</option>
+                               <option id="2018" value="2018">2018</option>
+                               
+                           </select>
+                        </div>
+
+                        <div id="divyear" class="mb-3">
+                            <label for="trimestre" class="form-label">Trimestre</label>
+                            <select name="trimestre" id="trimestre" class="form-select" tabindex="2">
+                               <option value="<%= user.trimestre %>" hidden><%= user.trimestre %></option>
+                               <option id="primero" value="primero">Primero</option>
+                               <option id="segundo" value="segundo">Segundo</option>
+                               <option id="tercero" value="tercero">Tercero</option>
+                               <option id="cuarto" value="cuarto">Cuarto</option>
+                               
+                           </select>
+                        </div>
+
+                        <div id="divconcepto" class="mb-3">
+                            <label for="concepto" class="form-label">Concepto</label>
+                            <input id="concepto" name="concepto" type="text" class="form-control" value="<%= user.concepto %>" tabindex="2">
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="file" class="form-label">Si lo desea puede subir un nuevo archivo</label><br>
+                            <input type="file" id="file" name="file"><br>
+                        </div>
+
+                        <div>
+                            <input type="text" id="user" name="user" value="<%= user.user %>" hidden>
+                        </div>
+                        <div>
+                            <input type="text" id="id" name="id" value="<%= user.id %>" hidden>
+                        </div>
+                        <div>
+                            <input type="text" id="seccion" name="seccion" value="<%= user.seccion %>" hidden>
+                        </div>
+                        <div>
+                            <input type="text" id="ruta" name="ruta" value="<%= user.ruta %>" hidden>
+                        </div>
+                        <div>
+                            <input type="text" id="anterior" name="archivoanterior" value="<%= user.archivo %>" hidden>
+                        </div>
+
+                        <input name="boton" id="boton" type="submit" class="btn btn-primary" value="Actualizar información">
+
+                        <!-- <button type="submit" class="btn btn-primary">Siguiente</button> -->
+                        <a href="/selectTable" class="btn btn-secondary float-end">Cancelar</a>
+                    </form>
+
+                </div>
+                <% } %>
+        </div>
+        <div>
+            <% if (user.seccion==='Transparencia') { %>
+                <div id="formularioT" class="card-body">
+
+                    <form action="/files" method="POST" enctype="multipart/form-data">
+
+                        <div class="mb-3" id="divunidad">
+                            <label for="selectunidad" class="form-label">Unidad</label>
+                            <select name="selectunidad" id="selectunidad" class="form-select" tabindex="2">
+                                <option value="<%= user.user %>" hidden><%= user.user %></option>
+                                <option value="Coordinación de Normatividad, Riesgos y Políticas Públicas">Coordinación de Normatividad, Riesgos y Políticas Públicas</option>
+                                <option value="Unidad Administrativa">Unidad Administrativa</option>
+                                <option value="Coordinación de Plataforma Digital y Vinculación Interinstitucional">Coordinación de Plataforma Digital y Vinculación Interinstitucional</option>
+                                <option value="No aplica" disabled>No aplica</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="year" class="form-label">Año</label>
+                            <select name="year" id="year" class="form-select" tabindex="2">
+                                <option value="<%= user.year %>" hidden><%= user.year %></option>
+                               <option value="2021">2021</option>
+                               <option value="2020">2020</option>
+                               <option value="2019">2019</option>
+                               <option value="2018">2018</option>
+                           </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="articulo" class="form-label">Artículo</label>
+                            <select name="articulo" id="articulo" class="form-select" tabindex="2" onclick="ShowHideElement()">
+                               <option value="<%= user.articulo %>" hidden><%= user.articulo %></option>
+                               <option id="36" value="36" >36</option>
+                               <option id="70" value="70">70</option>
+                               <option id="80" value="80" >80</option>
+                           </select>
+                        </div>
+
+
+                        <div class="mb-3">
+                            <label for="fraccion" class="form-label">Fraccion</label>
+                            <select name="fraccion" id="fraccion" class="form-select" tabindex="3">
+                                <option value="<%= user.fraccion %>" hidden><%= user.fraccion %></option>
+                                <option id="i" value="i">I</option>
+                                <option id="ii" value="ii">II</option>
+                                <option id="iii" value="iii">III</option>
+                                <option id="iv" value="iv" >IV</option>
+                                <option id="v" value="v">V</option>
+                                <option id="vi" value="vi">VI</option>
+                                <option id="vii" value="vii" >VII</option>
+                                <option id="viii" value="viii">VIII</option>
+                                <option id="ix" value="ix">IX</option>
+                                <option id="x" value="x" >X</option>
+                                <option id="xi" value="xi">XI</option>
+                                <option id="xii" value="xii">XII</option>
+                                <option id="xiii" value="xiii">XIII</option>
+                                <option id="xiv" value="xiv">XIV</option>
+                                <option id="xv" value="xv">XV</option>
+                                <option id="xvi" value="xvi">XVI</option>
+        
+                                <option id="xvii" value="xvii">XVII</option>
+                                <option id="xviii" value="xviii">XVIII</option>
+                                <option id="xix" value="xix">XIX</option>
+                                <option id="xx" value="xx">XX</option>
+                                <option id="xxi" value="xxi">XXI</option>
+                                <option id="xxii" value="xxii">XXII</option>
+                                <option id="xxiii" value="xxiii">XXIII</option>
+                                <option id="xxiv" value="xxiv">XXIV</option>
+                                <option id="xxv" value="xxv">XXV</option>
+                                <option id="xxvi" value="xxvi">XXVI</option>
+                                <option id="xxvii" value="xxvii">XXVII</option>
+                                <option id="xxviii" value="xxviii">XXVIII</option>
+                                <option id="xxix" value="xxix">XXIX</option>
+                                <option id="xxx" value="xxx">XXX</option>
+        
+                                <option id="xxxi" value="xxxi">XXXI</option>
+                                <option id="xxxii" value="xxxii">XXXII</option>
+                                <option id="xxxiii" value="xxxiii">XXXIII</option>
+                                <option id="xxxiv" value="xxxiv">XXXIV</option>
+                                <option id="xxxv" value="xxxv">XXXV</option>
+                                <option id="xxxvi" value="xxxvi">XXXVII</option>
+                                <option id="xxxvii" value="xxxvii">XXXVIII</option>
+                                <option id="xxxviii" value="xxxviii">XXXIX</option>
+                                <option id="xl" value="xl">XL</option>
+        
+                                <option id="xli" value="xli">XLI</option>
+                                <option id="xlii" value="xlii">XLII</option>
+                                <option id="xliii" value="xliii">XLIII</option>
+                                <option id="xliv" value="xliv">XLIV</option>
+                                <option id="xlv" value="xlv">XLV</option>
+                                <option id="xlvi" value="xlvi">XLVI</option>
+                                <option id="xlvii" value="xlvii">XLVII</option>
+                                <option id="xlviii" value="xlviii">XLVIII</option>
+                                <option id="sf36" value="sf36">SF</option>
+                                <option id="f80" value="f80">I,II,III</option>
+                                <option id="ultimo" value="Último Párrafo">Último Párrafo</option>
+                           </select>
+                        </div>
+
+                        <div>
+                            <textarea name="parrafo" id="parrafo" cols="30" rows="4" placeholder="Contenido" class="form-control"><%= user.parrafo %></textarea>
+                        </div>
+
+                        <div id="partecompleta" class="mb-3">
+                            <label for="inciso" class="form-label">Inciso</label>
+                            <select name="inciso" id="inciso" class="form-select" tabindex="2">
+                               <option value="<%= user.inciso %>" hidden><%= user.inciso %></option>
+                               <option id="" value=""></option>
+                               <option id="a" value="a" >a</option>
+                               <option id="b" value="b" >b</option>
+                               <option id="c" value="c" >c</option>
+                               <option id="d" value="d" >d</option>
+                               <option id="e" value="e" >e</option>
+                               <option id="f" value="f" >f</option>
+                               <option id="g" value="g" >g</option>
+                           </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="aplica" class="form-label">Aplica</label>
+                            <select name="aplica" id="aplica" class="form-select" tabindex="2">
+                               <option value="<%= user.aplica %>" hidden><%= user.aplica %></option>
+                               <option value="Aplica" selected>Aplica</option>
+                               <option value="No aplica">No aplica</option>
+                           </select>
+                        </div>
+
+
+                        <div class="mb-3">
+                            <label for="file" class="form-label">Si lo desea puede subir un nuevo archivo</label><br>
+                            <input type="file" id="file" name="file"><br>
+                        </div>
+
+                        <div>
+                            <input type="text" id="user" name="user" value="<%= user.user %>" hidden>
+                        </div>
+                        <div>
+                            <input type="text" id="id" name="id" value="<%= user.id %>" hidden>
+                        </div>
+                        <div>
+                            <input type="text" id="seccion" name="seccion" value="<%= user.seccion %>" hidden>
+                        </div>
+                        <div>
+                            <input type="text" id="ruta" name="ruta" value="<%= user.ruta %>" hidden>
+                        </div>
+                        <div>
+                            <input type="text" id="anterior" name="archivoanterior" value="<%= user.archivo %>" hidden>
+                        </div>
+
+                        <input name="boton" id="boton" type="submit" class="btn btn-primary" value="Actualizar información">
+
+                        <a href="/selectTable" class="btn btn-secondary float-end">Cancelar</a>
+
+                    </form>
+
+
+                </div>
+                <% } %>
+        </div>
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+</body>
+
+</html>

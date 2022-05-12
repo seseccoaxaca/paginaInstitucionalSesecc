@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SESECC</title>
+    <link rel="icon" type="image/png" href="img/icono.png">
+    <!--cdn de jquery-->
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="css/inicio.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" href="css/hover.css" />
+    <link href="css/dashboard.css" rel="stylesheet">
+    <!-- iconos -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!--bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+
+    <header class="navbar navbar-dark sticky-top colorBG4 flex-md-nowrap p-0 shadow-sm">
+        <img class="col-md-3 col-lg-2 py-2 mt-2 mb-2" src="img/SESECC_blancohor.svg" alt="" width="240">
+        <button class="navbar-toggler position-absolute d-md-none collapsed mt-3" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+           <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div type="text" class="col-md-6 col-lg-8 px-3 mt-2 mb-2 text-center" style="color: #ffff">
+            <h3></h3>
+        </div>
+        <div type="text" class="col-md-3 col-lg-2 px-3 mt-md-2 mb-2 text-end">
+            <div class="">
+                <form action="logout" method="get">
+                    <button class=" btn btn-primary3 btn-sm text-white"><i class="bi bi-person-fill"></i> Cerrar Sesion</button>
+                </form>
+            </div>
+
+        </div>
+    </header>
+
+    <div class="container-fluid">
+        <div class="row">
+            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse mt-4">
+                <div class="position-sticky pt-3">
+                    <!-- <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="">
+                                <span data-feather="home"></span> Noticias
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="">
+                                <span data-feather="home"></span> Actas
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="">
+                                <span data-feather="home"></span>Marco Normativo
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="">
+                                <span data-feather="home"></span>Información Financiera
+                            </a>
+                        </li>
+
+
+                    </ul> -->
+                    <ul class="nav flex-column mb-2">
+
+                        <hr size="3" width="100%" color="black">
+                        <li class="nav-item">
+
+                            <% if(user==='Usuario upload') { %>
+                                <a class="nav-link px-3" href="/selectTable">Editar tablas</a>
+                                <% } %>
+
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom" id="Inicio">
+
+                    <h4>Bienvenido:
+
+                        <% if(user) { %>
+                            <span class=""><%= user %></span>
+                            <% } %>
+
+                    </h4>
+                </div>
+
+                <div class="container border border-secondary mt-1 p-2">
+                    <div id="formulario" class="card-body">
+                        <form action="/files" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
+
+
+                            <div class="mb-3" id="divunidad">
+                                <label for="selectunidad" class="form-label">Unidad</label>
+                                <select name="selectunidad" id="selectunidad" class="form-select" tabindex="2" onchange="ShowHideElement6()">
+                                    <option value="" hidden>seleccciona la Unidad</option>
+                                    <option value="Coordinación de Normatividad, Riesgos y Políticas Públicas">Coordinación de Normatividad, Riesgos y Políticas Públicas</option>
+                                    <option value="Unidad Administrativa">Unidad Administrativa</option>
+                                    <option value="Coordinación de Plataforma Digital y Vinculación Interinstitucional">Coordinación de Plataforma Digital y Vinculación Interinstitucional</option>
+                                    <option value="No aplica" disabled>No aplica</option>
+                                </select>
+                            </div>
+
+
+                            <div class="">
+                                <div class="mb-3 ">
+                                    <label for="year" class="form-label">Año</label>
+                                    <select name="year" id="year" class="form-select" tabindex="2">
+                                       <option value="2021" selected>2021</option>
+                                       <option value="2020">2020</option>
+                                       <option value="2019">2019</option>
+                                       <option value="2018">2018</option>
+                                   </select>
+                                </div>
+
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="articulo" class="form-label">Artículo</label>
+                                        <select name="articulo" id="articulo" class="form-select" tabindex="2" onchange="ShowHideElement()">
+                                           <option id="36" value="36" >36</option>
+                                           <option id="70" value="70" selected>70</option>
+                                           <option id="80" value="80" >80</option>
+                                       </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="fraccion" class="form-label">Fraccion</label>
+                                        <select name="fraccion" id="fraccion" class="form-select" tabindex="3" onchange="ShowHideElement2()" required>
+                                        <option id="sn" value=""hidden></option>
+                                        <option id="i" value="i">I</option>
+                                        <option id="ii" value="ii">II</option>
+                                        <option id="iii" value="iii">III</option>
+                                        <option id="iv" value="iv" >IV</option>
+                                        <option id="v" value="v">V</option>
+                                        <option id="vi" value="vi">VI</option>
+                                        <option id="vii" value="vii" >VII</option>
+                                        <option id="viii" value="viii">VIII</option>
+                                        <option id="ix" value="ix">IX</option>
+                                        <option id="x" value="x" >X</option>
+                                        <option id="xi" value="xi">XI</option>
+                                        <option id="xii" value="xii">XII</option>
+                                        <option id="xiii" value="xiii">XIII</option>
+                                        <option id="xiv" value="xiv">XIV</option>
+                                        <option id="xv" value="xv">XV</option>
+                                        <option id="xvi" value="xvi">XVI</option>
+                
+                                        <option id="xvii" value="xvii">XVII</option>
+                                        <option id="xviii" value="xviii">XVIII</option>
+                                        <option id="xix" value="xix">XIX</option>
+                                        <option id="xx" value="xx">XX</option>
+                                        <option id="xxi" value="xxi">XXI</option>
+                                        <option id="xxii" value="xxii">XXII</option>
+                                        <option id="xxiii" value="xxiii">XXIII</option>
+                                        <option id="xxiv" value="xxiv">XXIV</option>
+                                        <option id="xxv" value="xxv">XXV</option>
+                                        <option id="xxvi" value="xxvi">XXVI</option>
+                                        <option id="xxvii" value="xxvii">XXVII</option>
+                                        <option id="xxviii" value="xxviii">XXVIII</option>
+                                        <option id="xxix" value="xxix">XXIX</option>
+                                        <option id="xxx" value="xxx">XXX</option>
+                
+                                        <option id="xxxi" value="xxxi">XXXI</option>
+                                        <option id="xxxii" value="xxxii">XXXII</option>
+                                        <option id="xxxiii" value="xxxiii">XXXIII</option>
+                                        <option id="xxxiv" value="xxxiv">XXXIV</option>
+                                        <option id="xxxv" value="xxxv">XXXV</option>
+                                        <option id="xxxvi" value="xxxvi">XXXVII</option>
+                                        <option id="xxxvii" value="xxxvii">XXXVIII</option>
+                                        <option id="xxxviii" value="xxxviii">XXXIX</option>
+                                        <option id="xl" value="xl">XL</option>
+                
+                                        <option id="xli" value="xli">XLI</option>
+                                        <option id="xlii" value="xlii">XLII</option>
+                                        <option id="xliii" value="xliii">XLIII</option>
+                                        <option id="xliv" value="xliv">XLIV</option>
+                                        <option id="xlv" value="xlv">XLV</option>
+                                        <option id="xlvi" value="xlvi">XLVI</option>
+                                        <option id="xlvii" value="xlvii">XLVII</option>
+                                        <option id="xlviii" value="xlviii">XLVIII</option>
+                                        <option id="sf36" value="sf36">SF</option>
+                                        <option id="f80" value="f80">I,II,III</option>
+                                        <option id="ultimo" value="Último Párrafo">Último Párrafo</option>
+                                   </select>
+                                        <div class="invalid-feedback">
+                                            Selecciona una opción
+                                        </div>
+                                    </div>
+
+                                    <div id="partecompleta" class="mb-3">
+                                        <label for="inciso" class="form-label">Inciso</label>
+                                        <select name="inciso" id="inciso" class="form-select" tabindex="2">
+                                        <option id="null" value="null" hidden><p class="text-muted">selecciona un inciso...</p></option>
+                                       <option id="a" value="a" >a</option>
+                                       <option id="b" value="b" >b</option>
+                                       <option id="c" value="c" >c</option>
+                                       <option id="d" value="d" >d</option>
+                                       <option id="e" value="e" >e</option>
+                                       <option id="f" value="f" >f</option>
+                                       <option id="g" value="g" >g</option>
+                                   </select>
+                                    </div>
+
+                                    <div class="mb-3" hidden>
+                                        <label for="aplica" class="form-label">Aplica</label>
+                                        <select name="aplica" id="aplica" class="form-select" tabindex="2">
+                                          <option value="Aplica" selected>Aplica</option>
+                                          <option value="No aplica">No aplica</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+
+                                    <div class="file2 btn btn-light">
+                                        <label for="archivo">Selecciona un archivo</label>
+                                        <input type="file" name="file" id="archivo5" multiple required>
+                                        <div class="invalid-feedback">
+                                            <h6>¡Por favor seleccione un archivo!</h6>
+                                        </div>
+                                        <h2 class="text-muted"><i class="bi bi-cloud-arrow-up"></i></h2>
+                                        <h5 class="text-muted" id="nombre5">o <br>Suelta los archivos aquí</h5><br>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+                            <!--   
+            
+                            <div class="mb-3">
+                                <label for="aplica" class="form-label">Motivo y fundamentación</label>
+                                <textarea class="form-control" aria-label="With textarea"></textarea>
+                            </div>
+            
+                            <div class="mb-3">
+                                <label for="aplica" class="form-label">Unidad administrativa responsable de generar la información</label>
+                                <textarea class="form-control" aria-label="With textarea"></textarea>
+                            </div> -->
+
+                            <!-- <div class="mb-3">
+                                <label for="file">Subir archivos</label><br>
+                                <input type="file" id="file" name="file"><br>
+                            </div> -->
+
+                            <!-- <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                            </div> 
+                            <input type="submit" value="Subir">-->
+
+                            <!-- <div class="mb-3">
+                                <label for="file" class="form-label">Subir archivo</label><br>
+                                <input type="file" id="file" name="file" required>
+                                <div class="invalid-feedback h2">
+                                    ¡Por favor seleccione un archivo!
+                                </div>
+                            </div> -->
+
+
+                            <div>
+                                <input type="text" id="seccion" name="seccion" value="Transparencia" hidden>
+                            </div>
+                            <div>
+                                <input type="text" id="user" name="user" value="<%= user %>" hidden>
+                            </div>
+
+                            <div class="float-end">
+                                <a href="/inicio" class="btn btn-secondary">Cancelar</a>
+                                <input name="boton" id="boton" type="submit" class="btn btn-primary" value="Guardar">
+                            </div>
+                            <br>
+                        </form>
+                    </div>
+
+                    <div id="selector">
+                        <div class="">
+                            <label for="seccion" class="form-label">Sección</label>
+                            <select name="selectseccion" id="selectseccion" class="form-select" tabindex="2" onchange="ShowHideElement3()">
+                                <option id="actas" value="Actas">Actas</option>   
+                                <option id="marcoNormativo" value="Marco Normativo">Marco Normativo</option>
+                                <option id="informacionFinanciera" value="Información Financiera">Información Financiera</option>
+                                <option id="noticias" value="Noticias">Noticias</option>
+                                   
+                               </select>
+                        </div>
+                    </div>
+
+                    <div id="formularioMN" class="card-body">
+                        <form action="/subirMN" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
+
+                            <div id="divtipo" class="mb-3">
+                                <label for="tipo" class="form-label">Tipo</label>
+                                <select name="tipo" id="tipo" class="form-select" tabindex="2" required>
+                                   <option value="" hidden></option>
+                                   <option value="Internacional">Internacionales</option>
+                                   <option value="Leyes Federales">Leyes Federales</option>
+                                   <option value="Leyes Estatales">Leyes Estatales</option>
+                                   <option value="Decretos">Decretos</option>
+                                   <option value="Reglamentos">Reglamentos</option>
+                                   <option value="Lineamientos">Lineamientos</option>
+                                   <option value="Manuales">Manuales</option>
+                               </select>
+                                <div class="invalid-feedback">
+                                    Seleccione una opción
+                                </div>
+                            </div>
+
+                            <div id="divdesc" class="mb-3">
+                                <label for="descripcion" class="form-label">Nombre/Descripción</label>
+                                <input id="descripcion" name="descripcion" type="text" class="form-control" tabindex="2" required>
+                                <div class="invalid-feedback">
+                                    Este campo debe ser llenado
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="mb-3 col-md-6">
+
+                                    <div id="divfecha" class="my-3">
+                                        <label for="fecha" class="form-label">Fecha de publicación</label>
+                                        <input id="fecha" name="fecha" type="date" tabindex="2" required>
+                                        <div class="invalid-feedback">
+                                            Este campo debe ser llenado
+                                        </div>
+                                    </div>
+
+                                    <div id="divreforma" class="my-3">
+                                        <label for="reforma" class="form-label">Última Reforma</label>
+                                        <input id="reforma" name="reforma" type="date" tabindex="2">
+                                        <input type="radio" name="reforma" id="" value="Sin Reforma"><label for="reforma" onclick="Reformadisable()"> Sin Reforma</label>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <!-- <label for="file" class="form-label">Subir archivo</label><br> -->
+                                    <div class="file1 btn btn-light">
+                                        <label for="archivo">Selecciona un archivo</label>
+                                        <input type="file" accept="application/pdf,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" name="file" id="archivo" multiple required>
+                                        <div class="invalid-feedback">
+                                            <h6>¡Por favor seleccione un archivo!</h6>
+                                        </div>
+                                        <h2 class="text-muted"><i class="bi bi-cloud-arrow-up"></i></h2>
+                                        <h5 class="text-muted" id="nombre">o <br>Suelta los archivos aquí</h5><br>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <input type="text" id="user" name="user" value="<%= user %>" hidden>
+
+                            <input type="text" id="seccion" name="seccion" value="Marco Normativo" hidden>
+
+                            <div class="float-end">
+                                <a href="/inicio" class="btn btn-secondary">Cancelar</a>
+                                <input name="boton" id="boton" type="submit" class="btn btn-primary" value="Guardar">
+                            </div>
+                            <br>
+                        </form>
+                    </div>
+
+                    <div id="formularioA" class="card-body">
+                        <form action="/subirActas" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
+
+                            <div id="divquien" class="mb-3">
+                                <label for="unidad" class="form-label">Unidad</label>
+                                <select name="unidad" id="unidad" class="form-select" tabindex="2" required>
+                                   <option id="sn" value="" hidden></option>
+                                   <option id="comiteCoordinador" value="Comité Coordinador">Comité Coordinador</option>
+                                   <option id="organodGobierno" value="Órgano de Gobierno">Órgano de Gobierno</option>
+                                   <option id="comisionEjecutiva" value="Comisión Ejecutiva">Comisión Ejecutiva</option>
+                               </select>
+                                <div class="invalid-feedback">
+                                    Seleccione una opción
+                                </div>
+                            </div>
+
+
+                            <div id="divdesc" class="mb-3">
+                                <label for="descripcion" class="form-label">Nombre/Descripción</label>
+                                <input id="descripcion" name="descripcion" type="text" class="form-control" tabindex="2" required>
+                                <div class="invalid-feedback">
+                                    Este campo debe ser llenado
+                                </div>
+                            </div>
+
+                            <!-- <div id="divyear" class="mb-3" hidden>
+                                <label for="year" class="form-label">Año</label>
+                                <select name="year" id="year" class="form-select" tabindex="2">
+                                   <option id="2021" value="2021">2021</option>
+                                   <option id="2020" value="2020">2020</option>
+                                   <option id="2019" value="2019">2019</option>
+                                   <option id="2018" value="2018">2018</option>
+                                   
+                               </select>
+                            </div> -->
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div id="divsesion" class="mb-3">
+                                        <label for="sesion" class="form-label">Sesion</label>
+                                        <select name="sesion" id="sesion" class="form-select" tabindex="2" required>
+                                           <option id="sn" value="" hidden></option>
+                                           <option id="ordinaria" value="Ordinaria">Ordinaria</option>
+                                           <option id="extraordinaria" value="Extraordinaria">Extraordinaria</option>
+                                       </select>
+                                        <div class="invalid-feedback">
+                                            Seleccione una opción
+                                        </div>
+                                    </div>
+                                    <div id="divfecha" class="mb-3">
+                                        <label for="fecha" class="form-label">Fecha de publicación</label>
+                                        <input id="fecha" name="fecha" type="date" min="2018-01-01" max="2021-12-31" tabindex="2" required>
+                                        <div class="invalid-feedback">
+                                            Este campo debe ser llenado
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="file2 btn btn-light">
+                                        <label for="archivo">Selecciona un archivo</label>
+                                        <input type="file" id="archivo2" name="file" accept="application/pdf" required>
+                                        <div class="invalid-feedback">
+                                            <h6>¡Por favor seleccione una imagen!</h6>
+                                        </div>
+                                        <h2 class="text-muted"><i class="bi bi-cloud-arrow-up"></i></h2>
+                                        <h5 class="text-muted" id="nombre2">o <br>Suelta los archivos aquí</h5><br>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- <div class="mb-3">
+                                <label for="file" class="form-label">Subir archivo</label><br>
+                                <input type="file" id="file" name="file" required><br>
+                                <div class="invalid-feedback h2">
+                                    ¡Por favor seleccione un archivo!
+                                </div>
+                            </div> -->
+
+
+                            <div>
+                                <input type="text" id="user" name="user" value="<%= user %>" hidden>
+                            </div>
+                            <div>
+                                <input type="text" id="seccion" name="seccion" value="Actas" hidden>
+                            </div>
+                            <div class="float-end">
+                                <a href="/inicio" class="btn btn-secondary">Cancelar</a>
+                                <input name="boton" id="boton" type="submit" class="btn btn-primary" value="Guardar">
+                            </div>
+
+                            <br>
+
+                            <!-- <button type="submit" class="btn btn-primary">Siguiente</button> -->
+
+                        </form>
+                    </div>
+
+                    <div id="formularioSP" class="card-body">
+                        <form action="/noticias" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
+
+                            <div id="divtitulo" class="mb-2">
+                                <label for="titulo" class="form-label">Titulo</label>
+                                <input id="titulo" name="titulo" type="text" class="form-control" tabindex="2" required>
+                                <div class="invalid-feedback">
+                                    Este campo debe ser llenado
+                                </div>
+                            </div>
+
+
+                            <div id="divcontenido" class="mb-2">
+                                <textarea id="contenido" name="contenido" cols="30" rows="4" placeholder="Contenido" class="form-control" required></textarea>
+                                <div class="invalid-feedback">
+                                    Este campo debe ser llenado
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <label for="link" class="form-label">Link/Ruta</label>
+                                <div id="divliga" class="mb-2 col-md-10">
+
+                                    <input id="link" name="link" type="link" class="form-control" placeholder="Solo si desea subir un documento use el boton de la derecha" tabindex="2" required>
+                                    <div class="invalid-feedback">
+                                        Este campo debe ser llenado
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <a class="btn btn-secondary" href="/subirdocumento">Subir Documento</a>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div id="divfecha" class="mb-2">
+                                        <label for="date" class="form-label">Fecha de publicación</label>
+                                        <input id="date" name="fecha" type="date" required>
+                                        <div class="invalid-feedback">
+                                            selecciona una fecha
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="divhora" class="mb-2" hidden>
+
+                                    <input id="tiempo" name="tiempo" type="text" class="form-control" tabindex="2">
+
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="file2 btn btn-light">
+                                        <label for="archivo">Selecciona una imagen</label>
+                                        <input type="file" id="archivo3" name="file" accept="image/jpg, image/jpeg, image/png, image/svg" required>
+                                        <div class="invalid-feedback">
+                                            <h6>¡Por favor seleccione una imagen!</h6>
+                                        </div>
+                                        <h2 class="text-muted"><i class="bi bi-cloud-arrow-up"></i></h2>
+                                        <h5 class="text-muted" id="nombre3">o <br>Suelta los archivos aquí</h5><br>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- <div class="mb-2">
+                                <label for="file" class="form-label">Subir documento</label><br>
+                                <input type="file" id="file" name="file"><br>
+                            </div> -->
+
+                            <!-- <div class="mb-2">
+                                <label for="file" class="form-label">Subir imagen</label><br>
+                                <input type="file" id="file" name="file" required><br>
+                                <div class="invalid-feedback">
+                                    ¡Por favor seleccione una imagen!
+                                </div>
+                            </div> -->
+
+
+                            <div>
+                                <input type="text" id="user" name="user" value="<%= user %>" hidden>
+                            </div>
+                            <div>
+                                <input type="text" id="seccion" name="seccion" value="Noticias" hidden>
+                            </div>
+
+                            <div class="float-end">
+                                <a href="/inicio" class="btn btn-secondary">Cancelar</a>
+                                <input name="boton" id="boton" type="submit" class="btn btn-primary" value="Guardar">
+                            </div>
+                            <br>
+                        </form>
+                    </div>
+
+                    <div id="formularioIF" class="card-body">
+                        <form action="/subirFinanciera" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
+
+                            <div id="divtipo" class="">
+                                <label for="tipo" class="form-label">Tipo</label>
+                                <select name="selecttipo" id="selecttipo" class="form-select" tabindex="2" onchange="ShowHideElement4()">
+                                   <option id="contable" value="Contable">Contable</option>
+                                   <option id="presupuestaria" value="Presupuestaria">Presupuestaria</option>
+                                   <option id="cuenta" value="Cuenta Pública">Cuenta Pública</option>
+                               </select>
+
+                            </div>
+                            <div id="divpresupuestaria">
+                                <label for="pre" class="form-label"></label>
+                                <select name="presu" class="form-select" id="presu" onchange="ShowHideElement5()">
+                                    <option value=""hidden ><p>Elige una opción...</p></option>
+                                    <option value="Estado analítico de ingresos y del ejercicio del presupuesto de egresos">Estado analítico de ingresos y del ejercicio del presupuesto de egresos</option>
+                                     <option value="Programática">Programática</option>
+                                     <option value="Información adicional">Información adicional</option>
+                                     <option value="Ley de disciplina financiera">Ley de disciplina financiera</option>
+                                 </select>
+                            </div>
+
+                            <div class="row mt-3">
+                                <div class="col-md-6">
+                                    <div id="divyear" class="mb-2">
+                                        <label for="year" class="form-label">Año</label>
+                                        <select name="year" id="year" class="form-select" tabindex="2" required>
+                                       <option value=""hidden></option>
+                                       <option id="2021" value="2021">2021</option>
+                                       <option id="2020" value="2020">2020</option>
+                                       <option id="2019" value="2019">2019</option>
+                                   </select>
+                                        <div class="invalid-feedback">
+                                            Seleccione una opción
+                                        </div>
+
+                                    </div>
+
+                                    <div id="divyear" class="mb-2">
+                                        <label for="trimestre" class="form-label">Trimestre</label>
+                                        <select name="trimestre" id="trimestre" class="form-select" tabindex="2" required>
+                                       <option value="" hidden></option>
+                                       <option id="primero" value="primero">Primero</option>
+                                       <option id="segundo" value="segundo">Segundo</option>
+                                       <option id="tercero" value="tercero">Tercero</option>
+                                       <option id="cuarto" value="cuarto">Cuarto</option>
+                                   </select>
+                                        <div class="invalid-feedback">
+                                            Seleccione una opción
+                                        </div>
+                                    </div>
+
+                                    <div id="divconcepto" class="mb-2">
+                                        <label for="concepto" class="form-label">Concepto</label>
+                                        <select name="concepto" id="concepto" class="form-select" tabindex="2" required>
+                                            <option id="" value="" hidden></option>
+                                            <option id="0-1" value="Estado de situación financiera">Estado de situación financiera</option>
+                                            <option id="0-2" value="Estado de actividades">Estado de actividades</option>
+                                            <option id="0-3" value="Estado de variación de la hacienda pública">Estado de variación de la hacienda pública</option>
+                                            <option id="0-4" value="Estado de cambios en la situación financiera">Estado de cambios en la situación financiera</option>
+                                            <option id="0-5" value="Estado analítico del activo">Estado analítico del activo</option>
+                                            <option id="0-6" value="Estado de flujos de efectivo">Estado de flujos de efectivo</option>
+                                            <option id="0-7" value="Estado analítico de la deuda y otros pasivos">Estado analítico de la deuda y otros pasivos</option>
+                                            <option id="0-8" value="Informe sobre pasivos contingentes">Informe sobre pasivos contingentes</option>
+                                            <option id="0-9" value="Notas a los estados financieros">Notas a los estados financieros</option>
+                    
+                                            <option id="1-1" value="Estado analítico de ingresos presupuestarios">Estado analítico de ingresos presupuestarios</option>
+                                            <option id="1-2" value="Clasificación por objeto de gasto">Clasificación por objeto de gasto</option>
+                                            <option id="1-3" value="Clasificación económica">Clasificación económica</option>
+                                            <option id="1-4" value="Clasificación administrativa">Clasificación administrativa</option>
+                                            <option id="1-5" value="Clasificación funcional">Clasificación funcional</option>
+                    
+                                            <option id="2-1" value="Resumen por programa presupuestario">Resumen por programa presupuestario</option>
+                                            <option id="2-2" value="Indicadores de resultados">Indicadores de resultados</option>
+                                            <option id="2-3" value="Programas y proyectos de inversión">Programas y proyectos de inversión</option>
+                    
+                                            <option id="3-1" value="Relación de bienes inmuebles que componen el patrimonio">Relación de bienes inmuebles que componen el patrimonio</option>
+                                            <option id="3-2" value="Relación de bienes muebles que componen el patrimonio">Relación de bienes muebles que componen el patrimonio</option>
+                                            <option id="3-3" value="Relación de cuentas bancarias productivas específicas">Relación de cuentas bancarias productivas específicas</option>
+                                            <option id="3-4" value="Relación de esquemas bursátiles y coberturas financieras">Relación de esquemas bursátiles y coberturas financieras</option>
+                                            <option id="3-5" value="Montos pagados por ayudas y subsidios">Montos pagados por ayudas y subsidios</option>
+                                            <option id="3-6" value="Intereses de la deuda">Intereses de la deuda</option>
+                                            <option id="3-7" value="Endeudamiento neto">Endeudamiento neto</option>
+                                            <option id="3-8" value="Indicadores de postura fiscal">Indicadores de postura fiscal</option>
+                                            <option id="3-9" value="Inventario">Inventario</option>
+                    
+                                            <option id="4-1" value="Balance presupuestario">Balance presupuestario</option>
+                                            <option id="4-2" value="Informe analítico de la deuda pública y otros pasivos">Informe analítico de la deuda pública y otros pasivos</option>
+                                            <option id="4-3" value="Estado analítico del ejercicio del presupuesto de egresos detallado (Clasificación por objeto del gasto)">Estado analítico del ejercicio del presupuesto de egresos detallado (Clasificación por objeto del gasto)</option>
+                                            <option id="4-4" value="Estado analítico del ejercicio del presupuesto de egresos detallado (Clasificación administrativa)">Estado analítico del ejercicio del presupuesto de egresos detallado (Clasificación administrativa)</option>
+                                            <option id="4-5" value="Estado analítico del ejercicio del presupuesto de egresos detallado (Clasificación funcional)">Estado analítico del ejercicio del presupuesto de egresos detallado (Clasificación funcional)</option>
+                                            <option id="4-6" value="Estado analítico del ejercicio del presupuesto de egresos detallado (Clasificación de servicios personales por categoría)">Estado analítico del ejercicio del presupuesto de egresos detallado (Clasificación de servicios personales por categoría)</option>
+                                            <option id="4-7" value="Estado analítico de ingreso detallado">Estado analítico de ingreso detallado</option>
+                                            <option id="4-8" value="Estado de situación financiera detallado">Estado de situación financiera detallado</option>
+                                            <option id="4-9" value="Informe analítico de obligaciones diferentes de financiamientos">Informe analítico de obligaciones diferentes de financiamientos</option>
+                                            <option id="4-10" value="Informe sobre estudios actuariales">Informe sobre estudios actuariales</option>
+                                            
+                                            <option id="5-cuenta" value="Cuenta pública">Cuenta pública</option>
+                                        </select>
+                                        <div class="invalid-feedback">
+                                            Este campo debe ser llenado
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="file2 btn btn-light">
+                                        <label for="archivo">Selecciona un archivo</label>
+                                        <input type="file" id="archivo4" name="file" accept="application/pdf" required>
+                                        <div class="invalid-feedback">
+                                            <h6>¡Por favor seleccione una imagen!</h6>
+                                        </div>
+                                        <h2 class="text-muted"><i class="bi bi-cloud-arrow-up"></i></h2>
+                                        <h5 class="text-muted" id="nombre4">o <br>Suelta los archivos aquí</h5><br>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <!-- <div class="mb-2">
+                                <label for="file" class="form-label">Subir archivo</label><br>
+                                <input type="file" id="file" name="file" required><br>
+                                <div class="invalid-feedback">
+                                    ¡Por favor seleccione un archivo!
+                                </div>
+                            </div> -->
+
+
+                            <div>
+                                <input type="text" id="user" name="user" value="<%= user %>" hidden>
+                            </div>
+                            <div>
+                                <input type="text" id="seccion" name="seccion" value="Informacion Financiera" hidden>
+                            </div>
+                            <div class="float-end">
+                                <a href="/inicio" class="btn btn-secondary">Cancelar</a>
+                                <input name="boton" id="boton" type="submit" class="btn btn-primary" value="Guardar">
+                            </div>
+                            <br>
+                        </form>
+                    </div>
+
+                </div>
+
+            </main>
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Nuevo curso</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+
+                            <form id="formCurso" action="/crearCurso" method="POST" enctype="multipart/form-data" class="needs-validation">
+
+                                <div id="divtitulo" class="mb-2">
+                                    <label for="titulo" class="form-label">Nombre del curso</label>
+                                    <input id="curso" name="tituloCurso" type="text" class="form-control" tabindex="2" required="">
+                                    <div class="invalid-feedback">
+                                        Este campo debe ser llenado
+                                    </div>
+                                </div>
+
+
+                                <div id="divcontenido" class="mb-2">
+                                    <textarea id="contenido" name="contenido" cols="10" rows="4" placeholder="Descripción" class="form-control" required=""></textarea>
+                                    <div class="invalid-feedback">
+                                        Este campo debe ser llenado
+                                    </div>
+                                </div>
+
+
+                                <div id="divduracion" class="mb-2">
+                                    <label for="duracion" class="form-label">Duración del curso (horas) </label>
+                                    <input id="duracion" name="duracion" type="number" class="form-control d-inline-block" maxlength="2" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" style="width: 70px;" required="">
+                                    <div class="invalid-feedback">
+                                        Este campo debe ser llenado
+                                    </div>
+                                </div>
+
+
+                                <div>
+                                    <div class="my-1 mx-auto text-center">
+                                        <label for="archivo">Selecciona una imagen de presentación</label>
+                                        <div class="file2 btn btn-light">
+                                            <label for="archivo">Selecciona una imagen</label>
+                                            <input type="file" id="archivo3" name="file" accept="image/jpg, image/jpeg, image/png, image/svg" required="">
+                                            <div class="invalid-feedback">
+                                                <h6>¡Por favor seleccione una imagen!</h6>
+                                            </div>
+                                            <h2 class="text-muted"><i class="bi bi-cloud-arrow-up"></i></h2>
+                                            <h5 class="text-muted" id="nombre3">o <br>Suelta el archivo aquí</h5><br>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div hidden>
+                                    <input type="text" id="user" name="user" value="<%= user %>">
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" onclick="resetform()" data-bs-dismiss="modal">Cancelar</button>
+                                    <input name="boton" id="boton" type="submit" class="btn btn-primary" value="Guardar">
+                                    <!-- <button type="submit" class="btn btn-primary">Guardar</button> -->
+                                </div>
+
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <!-- <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">SESECC</a>
+
+        <% if(user==='Usuario upload') { %>
+            <a class="nav-link px-3" href="/selectTable">Editar tablas</a>
+            <% } %>
+
+                <div class="navbar-nav">
+                    <div class="nav-item text-nowrap">
+
+                        <a class="nav-link px-3" href="/logout"><i class="bi bi-person-fill"></i> Cerrar Sesión</a>
+
+                    </div>
+                </div>
+    </header> -->
+
+
+
+
+
+    <script>
+        let archivo = document.querySelector('#archivo');
+        archivo.addEventListener('change', () => {
+            console.log(archivo.files.length)
+            if (archivo.files.length > 2) {
+                $("#archivo").val(null)
+                document.querySelector('#nombre').innerText = ''
+                alert('solo se permiten dos archivos como maximo')
+            } else if (archivo.files.length == 2) {
+                document.querySelector('#nombre').innerText = archivo.files[0].name + '\n' + archivo.files[1].name
+            } else {
+                document.querySelector('#nombre').innerText = archivo.files[0].name
+            }
+
+        })
+
+        let archivo2 = document.querySelector('#archivo2');
+        archivo2.addEventListener('change', () => {
+            document.querySelector('#nombre2').innerText = archivo2.files[0].name
+        })
+
+        let archivo3 = document.querySelector('#archivo3');
+        archivo3.addEventListener('change', () => {
+            document.querySelector('#nombre3').innerText = archivo3.files[0].name
+        })
+        let archivo4 = document.querySelector('#archivo4');
+        archivo4.addEventListener('change', () => {
+            document.querySelector('#nombre4').innerText = archivo4.files[0].name
+        })
+        let archivo5 = document.querySelector('#archivo5');
+        archivo5.addEventListener('change', () => {
+            document.querySelector('#nombre5').innerText = archivo5.files[0].name
+        })
+    </script>
+
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function() {
+            'use strict'
+
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.querySelectorAll('.needs-validation')
+
+            // Loop over them and prevent submission
+            Array.prototype.slice.call(forms)
+                .forEach(function(form) {
+                    form.addEventListener('submit', function(event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
+    </script>
+    <script>
+        var fecha = new Date();
+        var hora = fecha.getHours(),
+            minuto = fecha.getMinutes(),
+            segundo = fecha.getSeconds();
+        document.getElementById('tiempo').value = hora + '' + minuto + '' + segundo;
+    </script>
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <% if(alert && alertIcon =='success') { %>
+        <script>
+            Swal.fire({
+                    title: '<%= alertTitle %>',
+                    text: '<%= alertMessage %>',
+                    icon: '<%= alertIcon %>',
+                    showConfirmButton: false,
+                    timer: 800,
+                }).then(() => {
+                    window.location = '/<%= ruta %>'
+                })
+                //console.log('blalaala')
+        </script>
+        <% } %>
+            <% if(alert && alertIcon =='info') { %>
+                <script>
+                    Swal.fire({
+                            title: '<%= alertTitle %>',
+                            text: '<%= alertMessage %>',
+                            icon: '<%= alertIcon %>',
+                            showConfirmButton: true,
+                            timer: false,
+                        }).then(() => {
+                            window.location = '/<%= ruta %>'
+                        })
+                        //console.log('blalaala')
+                </script>
+                <% } %>
+
+
+                    <!--------permiso para llenar los campos------------------------------------>
+
+                    <script type="text/javascript">
+                        $("#partecompleta").hide();
+                        $("#selector").hide();
+                        $("#formularioMN").hide();
+                        $("#formularioA").hide();
+                        $("#formularioSP").hide();
+                        $("#formularioIF").hide();
+                        $("#divunidad").hide();
+                        var user = document.getElementById("user").value;
+                        //ShowHideElement();
+                        //verificamos el tipo de usuario 
+                        //usuario A
+                        if (user === 'Coordinación de Normatividad, Riesgos y Políticas Públicas') {
+                            $("#36").hide();
+                            ShowHideElement();
+                        }
+
+                        //usuario B
+                        if (user === 'Unidad Administrativa') {
+                            $("#80").hide();
+                            ShowHideElement();
+                        }
+                        //usuario C
+                        if (user === 'Coordinación de Plataforma Digital y Vinculación Interinstitucional') {
+                            $("#36").hide();
+                            $("#80").hide();
+                            ShowHideElement();
+                        }
+                        //usuario D
+                        if (user === 'Unidad de Transparencia') {
+                            console.log(user)
+                            $("#divunidad").show();
+                            ocultar();
+                        }
+
+                        //usuario upload
+                        if (user === 'Usuario upload') { //en este caso upload
+
+                            $("#formulario").hide();
+                            $("#selector").show();
+                            ShowHideElement3();
+
+                            function Reformadisable() {
+                                $("#reforma").prop('disabled', true);
+                            }
+
+                            function ShowHideElement3() {
+                                if (document.getElementById("selectseccion").value === 'Marco Normativo') {
+
+                                    $("#formularioSP").hide();
+                                    $("#formularioA").hide();
+                                    $("#formularioIF").hide();
+                                    $("#formularioMN").show();
+
+                                }
+                                if (document.getElementById("selectseccion").value === 'Actas') {
+                                    $("#formularioSP").hide();
+                                    $("#formularioMN").hide();
+                                    $("#formularioIF").hide();
+                                    $("#formularioA").show();
+                                }
+                                if (document.getElementById("selectseccion").value === 'Noticias') {
+                                    $("#formularioMN").hide();
+                                    $("#formularioA").hide();
+                                    $("#formularioIF").hide();
+                                    $("#formularioSP").show();
+                                }
+                                if (document.getElementById("selectseccion").value === 'Información Financiera') {
+                                    $("#formularioMN").hide();
+                                    $("#formularioA").hide();
+                                    $("#formularioSP").hide();
+
+                                    $("#formularioIF").show();
+                                    $("#divpresupuestaria").hide();
+                                    ocultarConcepto()
+                                    ShowHideElement4();
+
+                                }
+
+                            }
+
+
+                            function ShowHideElement4() {
+                                if (document.getElementById("selecttipo").value === 'Contable') {
+                                    $("#divpresupuestaria").hide();
+                                    ocultarConcepto()
+                                    $("#0-1").show();
+                                    $("#0-2").show();
+                                    $("#0-3").show();
+                                    $("#0-4").show();
+                                    $("#0-5").show();
+                                    $("#0-6").show();
+                                    $("#0-7").show();
+                                    $("#0-8").show();
+                                    $("#0-9").show();
+                                    $('#concepto').val($('#concepto > option:first').val()); //esta linea es para limpiar los valores de concepto
+                                }
+                                if (document.getElementById("selecttipo").value === 'Cuenta Pública') {
+                                    $("#divpresupuestaria").hide();
+                                    ocultarConcepto()
+                                    $("#5-cuenta").show();
+                                    $('#concepto').val($('#concepto > option:first').val()); //esta linea es para limpiar los valores de concepto
+                                }
+                                if (document.getElementById("selecttipo").value === 'Presupuestaria') {
+                                    $("#divpresupuestaria").show();
+                                    ShowHideElement5()
+                                } else {
+                                    $('#presu').val($('#presu > option:first').val()); //esta linea es para limpiar los valores de presu
+
+                                }
+
+                            }
+
+                            function ShowHideElement5() {
+                                ocultarConcepto();
+                                $('#concepto').val($('#concepto > option:first').val()); //esta linea es para limpiar los valores de concepto
+                                if (document.getElementById("presu").value === 'Estado analítico de ingresos y del ejercicio del presupuesto de egresos') {
+                                    $("#1-1").show();
+                                    $("#1-2").show();
+                                    $("#1-3").show();
+                                    $("#1-4").show();
+                                    $("#1-5").show();
+                                }
+                                if (document.getElementById("presu").value === 'Programática') {
+                                    $("#2-1").show();
+                                    $("#2-2").show();
+                                    $("#2-3").show();
+                                }
+                                if (document.getElementById("presu").value === 'Información adicional') {
+                                    $("#3-1").show();
+                                    $("#3-2").show();
+                                    $("#3-3").show();
+                                    $("#3-4").show();
+                                    $("#3-5").show();
+                                    $("#3-6").show();
+                                    $("#3-7").show();
+                                    $("#3-8").show();
+                                    $("#3-9").show();
+                                }
+                                if (document.getElementById("presu").value === 'Ley de disciplina financiera') {
+                                    $("#4-1").show();
+                                    $("#4-2").show();
+                                    $("#4-3").show();
+                                    $("#4-4").show();
+                                    $("#4-5").show();
+                                    $("#4-6").show();
+                                    $("#4-7").show();
+                                    $("#4-8").show();
+                                    $("#4-9").show();
+                                    $("#4-10").show();
+                                }
+
+                            }
+
+
+
+                        }
+                        //esto lo hace el user A y B
+                        //----------usuario A
+
+                        function ShowHideElement6() {
+                            user = document.getElementById("selectunidad").value;
+                            //usuario A
+                            if (user === 'Coordinación de Normatividad, Riesgos y Políticas Públicas') {
+                                $("#36").hide();
+                                ShowHideElement();
+                            }
+
+                            //usuario B
+                            if (user === 'Unidad Administrativa') {
+                                $("#80").hide();
+                                ShowHideElement();
+                            }
+                            //usuario C
+                            if (user === 'Coordinación de Plataforma Digital y Vinculación Interinstitucional') {
+                                $("#36").hide();
+                                $("#80").hide();
+                                ShowHideElement();
+                            }
+                        }
+
+
+                        function ShowHideElement2() {
+                            $("#partecompleta").hide();
+                            var nfraccion = document.getElementById("fraccion").value
+                            $('#inciso').val($('#inciso > option:first').val()); //esta linea es para limpiar los valores de inciso
+                            if (nfraccion === 'ii' || nfraccion === 'x' || nfraccion === 'xxi' || nfraccion === 'xxiii' || nfraccion === 'xxviii') {
+                                $("#partecompleta").show();
+                            } else {
+
+                            }
+
+                        }
+                        //funcion para poner la fraccion que correspondiente al articulo y la unidad
+                        function ShowHideElement() {
+                            var cod = document.getElementById("articulo").value;
+                            $('#fraccion').val($('#fraccion > option:first').val()); //esta linea es para limpiar los valores de inciso
+                            if (cod === "70" && user === 'Coordinación de Normatividad, Riesgos y Políticas Públicas') {
+                                ocultar();
+                                $("#i").show();
+                                $("#iii").show();
+                                $("#xiii").show();
+                                $("#xxxiii").show();
+                                $("#xxxv").show();
+                                $("#xxxvi").show();
+                                $("#xxxvii").show();
+                                $("#xxxix").show();
+                                $("#xlvi").show();
+                                $("#xlviii").show();
+                            }
+                            if (cod === "80" && user === 'Coordinación de Normatividad, Riesgos y Políticas Públicas') {
+                                ocultar();
+                                $("#f80").show();
+                            }
+                            if (cod === "70" && user === 'Unidad Administrativa') {
+                                ocultar();
+                                $("#ii").show();
+                                $("#iv").show();
+                                $("#v").show();
+                                $("#vi").show();
+                                $("#vii").show();
+                                $("#viii").show();
+                                $("#ix").show();
+                                $("#x").show();
+                                $("#xi").show();
+                                $("#xii").show();
+                                $("#xvi").show();
+
+                                $("#xvii").show();
+                                $("#xviii").show();
+                                $("#xix").show();
+                                $("#xx").show();
+                                $("#xxi").show();
+                                $("#xxiii").show();
+                                $("#xxiv").show();
+                                $("#xxv").show();
+                                $("#xxviii").show();
+                                $("#xxix").show();
+                                $("#xxx").show();
+                                $("#xxxi").show();
+                                $("#xxxii").show();
+                                $("#xxxiv").show();
+                                $("#xlii").show();
+                                $("#xlv").show();
+                            }
+                            if (cod === "36" && user === 'Unidad Administrativa') {
+                                ocultar();
+                                $("#sf36").show();
+                            }
+                            if (cod === "70" && user === 'Coordinación de Plataforma Digital y Vinculación Interinstitucional') {
+                                ocultar();
+                                // $("#xxxvii").show();
+                                $("#xxxviii").show();
+                                // $("#xxxix").show();
+                                $("#xlvii").show();
+                                $("#ultimo").show();
+                            }
+
+                        }
+
+
+
+                        function ocultarConcepto() {
+                            $("#0-1").hide();
+                            $("#0-2").hide();
+                            $("#0-3").hide();
+                            $("#0-4").hide();
+                            $("#0-5").hide();
+                            $("#0-6").hide();
+                            $("#0-7").hide();
+                            $("#0-8").hide();
+                            $("#0-9").hide();
+
+                            $("#1-1").hide();
+                            $("#1-2").hide();
+                            $("#1-3").hide();
+                            $("#1-4").hide();
+                            $("#1-5").hide();
+
+                            $("#2-1").hide();
+                            $("#2-2").hide();
+                            $("#2-3").hide();
+
+                            $("#3-1").hide();
+                            $("#3-2").hide();
+                            $("#3-3").hide();
+                            $("#3-4").hide();
+                            $("#3-5").hide();
+                            $("#3-6").hide();
+                            $("#3-7").hide();
+                            $("#3-8").hide();
+                            $("#3-9").hide();
+
+                            $("#4-1").hide();
+                            $("#4-2").hide();
+                            $("#4-3").hide();
+                            $("#4-4").hide();
+                            $("#4-5").hide();
+                            $("#4-6").hide();
+                            $("#4-7").hide();
+                            $("#4-8").hide();
+                            $("#4-9").hide();
+                            $("#4-10").hide();
+
+                            $("#5-cuenta").hide();
+                        }
+
+                        function ocultar() {
+                            //$("#sn").show();
+                            $("#sn").hide();
+                            $("#i").hide();
+                            $("#ii").hide();
+                            $("#iii").hide();
+                            $("#iv").hide();
+                            $("#v").hide();
+                            $("#vi").hide();
+                            $("#vii").hide();
+                            $("#viii").hide();
+                            $("#ix").hide();
+                            $("#x").hide();
+                            $("#xi").hide();
+                            $("#xii").hide();
+                            $("#xiii").hide();
+                            $("#xiv").hide();
+                            $("#xv").hide();
+                            $("#xvi").hide();
+                            $("#xvii").hide();
+                            $("#xviii").hide();
+                            $("#xix").hide();
+                            $("#xx").hide();
+
+                            $("#xxi").hide();
+                            $("#xxii").hide();
+                            $("#xxiii").hide();
+                            $("#xxiv").hide();
+                            $("#xxv").hide();
+                            $("#xxvi").hide();
+                            $("#xxvii").hide();
+                            $("#xxviii").hide();
+                            $("#xxix").hide();
+                            $("#xxx").hide();
+
+
+                            $("#xxxi").hide();
+                            $("#xxxii").hide();
+                            $("#xxxiii").hide();
+                            $("#xxxiv").hide();
+                            $("#xxxv").hide();
+                            $("#xxxvi").hide();
+                            $("#xxxvii").hide();
+                            $("#xxxviii").hide();
+                            $("#xxxix").hide();
+                            $("#xl").hide();
+
+
+                            $("#xli").hide();
+                            $("#xlii").hide();
+                            $("#xliii").hide();
+                            $("#xliv").hide();
+                            $("#xlv").hide();
+                            $("#xlvi").hide();
+                            $("#xlvii").hide();
+                            $("#xlviii").hide();
+                            $("#sf36").hide();
+                            $("#f80").hide();
+                            $("#ultimo").hide();
+                        }
+                    </script>
+
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+</body>
+
+</html>

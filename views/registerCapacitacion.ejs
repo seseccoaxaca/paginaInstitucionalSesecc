@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SESECC</title>
+    <link rel="icon" type="image/png" href="img/icono.png">
+    <!--bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.1/css/dataTables.bootstrap5.min.css">
+    <!--css-->
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" href="css/hover.css" />
+    <!--iconos-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <!--font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <!--efectos-->
+    <script src="https://unpkg.com/scrollreveal"></script>
+</head>
+
+<body class="font-dm">
+
+    <div class="container-fluid" style="max-width: 800px">
+        <div class="">
+            <div class=" shadow-lg p-md-3 my-3">
+
+                <div class="card">
+                    <div class="card-header h3 text-muted">Registro</div>
+
+
+                    <form action="/registerAlumno" method="post">
+                        <div class="card-body">
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img class="img-fluid" src="img/capacitacion.jpg" alt="img">
+                                </div>
+                                <div class="col-md-8 my-2 padre">
+                                    <div class="hijo text-center">
+                                        <div class="color4">
+                                            <h2>Plataforma de Capacitación</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="my-3">
+                                <p class="">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam exercitationem adipisci nam voluptatum dignissimos facilis vel illo nemo vitae, reiciendis quis excepturi iusto sunt amet ducimus voluptas possimus maiores
+                                    blanditiis.
+                                </p>
+                            </div>
+                            <div class="mb-3">
+                                <p class="text-center h5">Datos personales</p>
+                            </div>
+                            <div class="mb-3">
+                                <label for="nombre" class="form-label">Nombre(s)</label>
+                                <input id="nombre" name="nombre" type="text" class="form-control" required="">
+                            </div>
+                            <div class="mb-3">
+                                <label for="apellidos" class="form-label">Apellidos</label>
+                                <input id="apellidos" name="apellidos" type="text" class="form-control" required="">
+                            </div>
+                            <div class="mb-3">
+                                <label for="correo" class="form-label">Correo</label>
+                                <input id="correo" name="correo" type="email" class="form-control" required="">
+                            </div>
+                            <!-- <div class="row">
+                                <div class="mb-3 col-md-6">
+                                    <label for="nacimiento" class="form-label">Fecha de nacimiento</label>
+                                    <br>
+                                    <div class="input-group date">
+                                        <input id="nacimiento" name="nacimiento" type="date" class="form-control" required=""><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                                    </div>
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label for="edad" class="form-label">Edad</label>
+                                    <label for="edad" class="text-muted">(número)</label>
+                                    <input id="edad" name="edad" type="text" class="form-control" required="" pattern="[0-9]+">
+                                </div>
+                            </div> -->
+
+                            <div class="mb-3">
+                                <label for="dependencia" class="form-label">Lugar de adscripción</label>
+                                <select name="dependencia" id="dependencia" class="form-select" required="">
+                                    <option value="" hidden></option>
+                            <option value="Direccion General">Dirección General</option>
+                            <option value="Secretaria Particular">Secretaría Particular</option>
+                            <option value="Asesor de Operaciones y Control">Asesor de Operaciones y Control</option>
+                            <option value="Departamento de Asuntos Juridicos">Departamento de Asuntos Jurídicos</option>
+                            <option value="Departamento de Sistemas">Departamento de Sistemas</option>
+                            <option value="Coordinador Operativo">Coordinador Operativo</option>
+                            <option value="Departamento de Armamento">Departamento de Armamento</option>
+                            <option value="Delegacion Regional Valles Centrales">Delegación Regional Valles Centrales</option>
+                            <option value="Delegacion Regional Huajuapan de Leon">Delegación Regional Huajuapan de León</option>
+                            <option value="Delegacion Regional Tuxtepec">Delegación Regional Tuxtepec</option>
+                            <option value="Delegacion Regional Matias Romero">Delegación Regional Matías Romero</option>
+                            <option value="Delegacion Regional Juchitan de Zaragoza">Delegación Regional Juchitán de Zaragoza</option>
+                            <option value="Subdelegacion Regional la Venta">Subdelegación Regional la Venta</option>
+                            <option value="Subdelegacion Regional Salina Cruz">Subdelegación Regional Salina Cruz</option>
+                            <option value="Delegacion Regional Puerto Escondido">Delegación Regional Puerto Escondido</option>
+                            <option value="Subdelegacion Regional Huatulco">Subdelegación Regional Huatulco</option>
+                            <option value="Subdelegacion Regional Pinotepa Nacional">Subdelegación Regional Pinotepa Nacional</option>
+                            <option value="Unidad Administrativa">Unidad Administrativa</option>
+                            <option value="Departamento de Cobranza">Departamento de Cobranza</option>
+                            <option value="Departamento de Servicios Generales y Recursos Materiales">Departamento de Servicios Generales y Recursos Materiales</option>
+                            <option value="Departamento de Recursos Humanos y Seleccion de Personal">Departamento de Recursos Humanos y Selección de Personal</option>
+                            <option value="Unidad de Comercialización y Servicio a Clientes">Unidad de Comercialización y Servicio a Clientes</option>
+                            <option value="Departamento de Servicio a Cliente">Departamento de Servicio a Cliente</option>
+                            <option value="Departamento de Comercializacion">Departamento de Comercialización</option>
+                            <option value="Departamento de Capacitacion y Profesionalizacion">Departamento de Capacitación y Profesionalización</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="codigo" class="form-label">Código de acceso</label>
+                                <label for="codigo" class="text-muted">(Proporcionado a traves de su invitación)</label>
+                                <input id="codigo" name="codigo" type="text" class="form-control" required="">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="user" class="form-label">Nombre de usuario</label>
+                                <input id="user" name="user" type="text" class="form-control" required="">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="contrasena" class="form-label">Contraseña</label>
+                                <label for="contrasena" class="text-muted">()</label>
+                                <input id="pass" name="pass" type="password" class="form-control" required="">
+                            </div>
+                            <div class="card-footer bg-transparent">
+                                <div class="float-end mb-2">
+                                    <a href="/loginCapacitacion" type="button" class="btn btn-secondary">Cancelar</a>
+                                    <input type="submit" class="btn btn-primary2" value="Registrar">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

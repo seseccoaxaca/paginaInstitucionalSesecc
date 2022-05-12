@@ -1,0 +1,381 @@
+:root {
+    --color1: #FEA142;
+    --color2: #0B1D1F;
+    --color3: #FEB142;
+    --color4: #46AAA6;
+    --color5: #E2E2E2;
+    --color6: #27CCAC;
+}
+
+.font-dm {
+    font-family: 'DM Sans', sans-serif;
+}
+
+.dependencias a {
+    color: white;
+}
+
+.dependencias a:hover {
+    color: var(--color1);
+}
+
+.navbar {
+    box-shadow: 2px 2px 5px rgb(136, 135, 135);
+    /* opacity: 0.9; */
+}
+
+nav.navbar ul.navbar-nav li:hover {
+    background: rgba(199, 199, 199, 0.2);
+}
+
+
+/* nav.navbar ul.navbar-nav li a.nav-link:hover {
+    color: var(--color4);
+} */
+
+
+/* nav.navbar ul.navbar-nav li a:hover {
+    background: rgba(39, 204, 172, 0.2);
+    color: var(--color4) !important;
+} */
+
+
+/* nav.navbar ul.navbar-nav li a:hover {
+    background: var(--color6);
+    color: white !important;
+} */
+
+nav.navbar ul.navbar-nav li ul li a:hover {
+    background: var(--color6);
+    color: white;
+}
+
+.acceder {
+    border-radius: 5px;
+    border-color: rgb(183, 184, 184);
+    color: #46AAA6;
+}
+
+
+/* header {
+    margin-top: 70px;
+} */
+
+.color-font {
+    color: rgb(80, 80, 82);
+}
+
+.datoContacto {
+    color: rgb(100, 100, 102);
+}
+
+.contacto {
+    background: url(../img/Contacto.jpg);
+    background-size: cover;
+    min-height: 500px;
+}
+
+.background-overlay {
+    background: rgba(248, 248, 252, 0.9);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.contactosala {
+    background: url(../img/Contacto.jpg);
+    background-size: cover;
+    min-height: 200px;
+}
+
+
+/* estas dos clases se utilisan en saladPrensa */
+
+.background-overlay1 {
+    position: relative;
+    background: url(../img/logo.svg);
+    background-size: 800px;
+    background-position: center;
+    background-position-y: 15px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.background-overlay2 {
+    background: #E2E2E2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+/* estas dos clases se utilisan en saladPrensa */
+
+@media only screen and (min-width: 1250px) and (max-width: 1500px) {
+    .background-overlay3 {
+        position: relative;
+        background: url(../img/icono.svg);
+        background-size: 360px;
+        background-position-x: 100px;
+        background-position-y: 74px;
+        background-repeat: no-repeat;
+    }
+}
+
+.background-overlay4 {
+    background: rgba(255, 255, 255, 0.7);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.div-imagen {
+    display: inline-block;
+    position: relative;
+}
+
+.div-imagen>div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    padding: 10px;
+    margin: 0;
+}
+
+.desvanecer:hover {
+    opacity: 0.07;
+    -webkit-transition: opacity 500ms;
+    -moz-transition: opacity 500ms;
+    -o-transition: opacity 500ms;
+    -ms-transition: opacity 500ms;
+    transition: opacity 500ms;
+}
+
+.color-titulo1 {
+    color: #46AAA6;
+}
+
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu>.dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -6px;
+    margin-left: -1px;
+    -webkit-border-radius: 0 6px 6px 6px;
+    -moz-border-radius: 0 6px 6px;
+    border-radius: 0 6px 6px 6px;
+}
+
+.dropdown-submenu:hover>.dropdown-menu {
+    display: block;
+}
+
+.dropdown-submenu>a:after {
+    display: block;
+    content: " ";
+    float: right;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 5px 0 5px 5px;
+    border-left-color: #ccc;
+    margin-top: 5px;
+    margin-right: -10px;
+}
+
+.dropdown-submenu:hover>a:after {
+    border-left-color: #fff;
+}
+
+.dropdown-submenu.pull-left {
+    float: none;
+}
+
+.dropdown-submenu.pull-left>.dropdown-menu {
+    left: -100%;
+    margin-left: 10px;
+    -webkit-border-radius: 6px 0 6px 6px;
+    -moz-border-radius: 6px 0 6px 6px;
+    border-radius: 6px 0 6px 6px;
+}
+
+.tamano {
+    width: 200px;
+}
+
+.alineacion-abajo {
+    width: 90%;
+    position: absolute;
+    bottom: 5px;
+    right: 0px;
+}
+
+.alinear-abajo2 {
+    width: 90%;
+    position: absolute;
+    bottom: 5px;
+    right: 0px;
+}
+
+.background-footer {
+    /* background: rgba(83, 83, 83, 0.6); */
+    background: var(--color4);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.color-tabla {
+    background-color: #46AAA6;
+}
+
+.color-tabla2 {
+    background-color: #FEB142;
+}
+
+.color-banda {
+    background-color: #46AAA6;
+}
+
+.color-banda {
+    background-color: #46AAA6;
+    /* background-color: rgb(83, 83, 83); */
+}
+
+.color-excel {
+    color: green;
+}
+
+.icon-pdf {
+    color: red;
+}
+
+.icon-facebook {
+    color: #3b5998;
+}
+
+.icon-word {
+    color: #3b5998;
+}
+
+.icon-twitter {
+    color: #00acee;
+}
+
+.color-icon {
+    color: rgb(127, 127, 129);
+}
+
+.color1 {
+    color: #FEA142;
+}
+
+.color2 {
+    color: #0B1D1F;
+}
+
+.color3 {
+    color: #FEB142;
+}
+
+.color4 {
+    color: #46AAA6;
+}
+
+.color5 {
+    color: #E2E2E2;
+}
+
+.color6 {
+    color: #27CCAC;
+}
+
+.colorBG1 {
+    background-color: #FEA142;
+}
+
+.colorBG2 {
+    background-color: #0B1D1F;
+}
+
+.colorBG3 {
+    background-color: #FEB142;
+}
+
+.colorBG4 {
+    background-color: #46AAA6;
+}
+
+.colorBG5 {
+    background-color: #E2E2E2;
+}
+
+.colorBG6 {
+    background-color: #27CCAC;
+}
+
+a.boton1 {
+    border-color: var(--color4);
+    color: var(--color4);
+    transition: box-shadow 0.2ms ease-in-out;
+}
+
+a.boton1:hover {
+    color: white;
+    box-shadow: 0 0 20px 20px var(--color4) inset;
+}
+
+a.boton2 {
+    border-color: var(--color6);
+    box-shadow: 0 0 20px 20px var(--color6) inset;
+    color: white;
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+a.boton2:hover {
+    color: var(--color6);
+    box-shadow: 0 0 5px 0 var(--color6) inset, 0 0 5px 2px var(--color6);
+}
+
+a.botonAcceder {
+    border-color: var(--color4);
+    color: var(--color4);
+}
+
+a.botonAcceder:hover {
+    color: var(--color6);
+    box-shadow: 0 0 1px 0 var(--color6) inset, 0 0 1px 1px var(--color6);
+}
+
+.page-link {
+    color: black !important;
+}
+
+.page-item.active .page-link {
+    background-color: var(--color1);
+    border: 1px solid var(--color1);
+    color: #fff !important;
+}
+
+.nav-link {
+    color: var(--color6);
+}
+
+.nav-link:hover {
+    color: var(--color4);
+}
+
+.nav-link.active {
+    /* font-weight: bold; */
+    color: var(--color4) !important;
+    /* background-color: rgb(252, 252, 252) !important; */
+}

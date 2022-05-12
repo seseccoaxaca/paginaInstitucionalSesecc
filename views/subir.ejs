@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SESECC</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!--bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+
+    <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">SESECC</a>
+        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+        <div class="navbar-nav">
+            <div class="nav-item text-nowrap">
+                <a class="nav-link px-3" href="/logout">Logout</a>
+
+            </div>
+        </div>
+    </header>
+
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h2>Bienvenido</h2>
+
+
+
+    </div>
+
+
+    <div class="container border border-secondary mt-4 p-4">
+        <div class="card-body">
+            <form action="/subira" method="POST" enctype="multipart/form-data">
+
+                <div class="mb-3">
+                    <label for="seccion" class="form-label">Sección</label>
+                    <select name="seccion" id="seccion" class="form-select" tabindex="2" onclick="ShowHideElement()">
+                       <option id="marcoNormativo" value="Marco Normativo">Marco Normativo</option>
+                       <option id="actas" value="Actas">Actas</option>
+                       
+                   </select>
+
+                    <div id="divtipo" class="mb-3">
+                        <label for="tipo" class="form-label">Tipo</label>
+                        <select name="tipo" id="tipo" class="form-select" tabindex="2">
+                       <option value="Internacional">Internacionales</option>
+                       <option value="Leyes Federales">Leyes Federales</option>
+                       <option value="Leyes Estatales">Leyes Estatales</option>
+                       <option value="Decretos">Decretos</option>
+                       <option value="Reglamentos">Reglamentos</option>
+                       <option value="Lineamientos">Lineamientos</option>
+                       <option value="Manuales">Manuales</option>
+                   </select>
+                    </div>
+
+                    <div id="divquien" class="mb-3">
+                        <label for="unidad" class="form-label">Unidad</label>
+                        <select name="unidad" id="unidad" class="form-select" tabindex="2">
+                       <option id="comiteCoordinador" value="Comité Coordinador">Comité Coordinador</option>
+                       <option id="organodGobierno" value="Órgano de Gobierno">Órgano de Gobierno</option>
+                       <option id="comisionEjecutiva" value="Comisión Ejecutiva">Comisión Ejecutiva</option>
+                       
+                   </select>
+                    </div>
+                    <div id="divsesion" class="mb-3">
+                        <label for="sesion" class="form-label">Sesion</label>
+                        <select name="sesion" id="sesion" class="form-select" tabindex="2">
+                       <option id="ordinaria" value="Ordinaria">Ordinaria</option>
+                       <option id="extraordinaria" value="Extraordinaria">Extraordinaria</option>
+                       
+                       
+                   </select>
+                    </div>
+                    <div id="divyear" class="mb-3">
+                        <label for="year" class="form-label">Año</label>
+                        <select name="year" id="year" class="form-select" tabindex="2">
+                       <option id="2021" value="2021">2021</option>
+                       <option id="2020" value="2020">2020</option>
+                       <option id="2019" value="2019">2019</option>
+                       
+                   </select>
+                    </div>
+                    <div id="divfecha" class="mb-3">
+                        <label for="fecha" class="form-label">Fecha</label>
+                        <input id="fecha" name="fecha" type="text" class="form-select" tabindex="2">
+                        </select>
+                    </div>
+
+
+                    <div id="divdesc" class="mb-3">
+                        <label for="descripcion" class="form-label">Nombre/Descripción</label>
+                        <input id="descripcion" name="descripcion" type="text" class="form-select" tabindex="2">
+                        </select>
+                    </div>
+
+
+
+                    <div class="mb-3">
+                        <label for="file" class="form-label">Subir archivos</label><br>
+                        <input type="file" id="file" name="file"><br>
+                    </div>
+
+                    <div>
+                        <input type="text" id="user" name="user" value="<%= user %>" hidden>
+                    </div>
+
+
+                    <input type="submit" class="btn btn-primary" value="Subir">
+
+                    <!-- <button type="submit" class="btn btn-primary">Siguiente</button> -->
+                    <a href="/logout" class="btn btn-secondary float-end">Salir</a>
+            </form>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <% if(alert) { %>
+            <script>
+                Swal.fire({
+                        title: '<%= alertTitle %>',
+                        text: '<%= alertMessage %>',
+                        icon: '<%= alertIcon %>',
+                        showConfirmButton: <%= showConfirmButton %>,
+                        timer: <%= timer %>,
+                    }).then(() => {
+                        window.location = '/<%= ruta %>'
+                    })
+                    //console.log('blalaala')
+            </script>
+            <% } %>
+                <script type="text/javascript">
+                    ShowHideElement();
+                    //
+
+                    function ShowHideElement() {
+                        if (document.getElementById("seccion").value === 'Marco Normativo') {
+                            ocultar();
+                            $("#divtipo").show();
+                            $("#divdesc").show();
+                        }
+                        if (document.getElementById("seccion").value === 'Actas') {
+                            ocultar();
+                            $("#divquien").show();
+                            $("#divyear").show();
+                            $("#divfecha").show();
+                            $("#divdesc").show();
+                            $("#divsesion").show();
+                        }
+                    }
+
+                    function ocultar() {
+                        $("#divtipo").hide();
+                        $("#divquien").hide();
+                        $("#divyear").hide();
+                        $("#divfecha").hide();
+                        $("#divdesc").hide();
+                        $("#divsesion").hide();
+                    }
+                </script>
+</body>
+
+</html>

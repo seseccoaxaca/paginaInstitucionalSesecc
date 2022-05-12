@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SESECC</title>
+    <link rel="icon" type="image/png" href="img/icono.svg">
+    <!--css-->
+    <link rel="stylesheet" type="text/css" href="css/inicio.css" />
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" href="css/hover.css" />
+    <!--iconos-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <!--font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap" rel="stylesheet">
+    <!--bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous" />
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container-fluid font-dm">
+            <a class="navbar-brand ms-2" href="/">
+                <!-- <img src="img/oaxaca.svg" alt="imagen" style="width: 60px;" class="" /> -->
+                <img src="img/icono.svg" alt="imagen" style="width: 40px; height: 40px" class="" />
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+            <div class="collapse navbar-collapse mx-0 text-center" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">INICIO</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            NOSOTROS
+          </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/quienes">QUIÉNES SOMOS</a></li>
+                            <li>
+                                <a class="dropdown-item" href="/quienes#estructuraOrganica">ESTRUCTURA ORGÁNICA</a>
+                            </li>
+                            <li><a class="dropdown-item" href="/quienes#mision">MISIÓN</a></li>
+                            <li><a class="dropdown-item" href="/quienes#vision">VISIÓN</a></li>
+                            <!-- <li>
+                                <a class="dropdown-item" href="/organodGobierno">ÓRGANO DE GOBIERNO</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="/comisionEjecutiva">COMISIÓN EJECUTIVA</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="/comiteCoordinador">COMITÉ COORDINADOR</a>
+                            </li> -->
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            NORMATIVIDAD
+          </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/marcoNormativo">MARCO NORMATIVO</a></li>
+                            <li>
+                                <a class="dropdown-item" href="/construccion">TRATADOS Y COMERCIOS INTERNACIONALES</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="/construccion">INTEGRIDAD PÚBLICA</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/saladPrensa">SALA DE PRENSA</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            TRANSPARENCIA
+          </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="transparencia">UNIDAD DE TRANSPARENCIA</a></li>
+                            <li><a class="dropdown-item" href="/actas">ACTAS DE SESIONES</a></li>
+                            <li>
+                                <a class="dropdown-item" href="/informacionFinanciera">INFORMACIÓN FINANCIERA</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="/construccion">INFORME DE GESTION</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="http://www.sesecc.oaxaca.gob.mx/wp-content/uploads/aviso-de-privacidad/aviso-de-privacidad-simplificado.pdf">AVISO DE PRIVACIDAD</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="/construccion">INFORMACION RELATIVA A LAS DENUNCIAS CIUDADANAS</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/construccion">PLATAFORMA DIGITAL ESTATAL</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contacto">CONTACTO</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <div class="nav-item text-nowrap float-end">
+                            <a class="nav-link px-3" href="/login"><i class="bi bi-person-check-fill color-icon h5"></i></a>
+
+                        </div>
+                    </li> -->
+
+                </ul>
+                <div>
+                    <a href="/login" class="btn btn-sm mx-3 text-muted border-secondary" style="color: #46AAA6; border-color: #46AAA6;">ACCEDER</a>
+                    <!-- <a href="/login" class="btn btn-sm text-muted mx-3" style=" border-color: #a5a5a5;">ACCEDER</a> -->
+                </div>
+            </div>
+            <div>
+
+                <div class="mx-2">
+                    <a class="float" href="https://www.facebook.com/SESECCOaxaca/"><i class="bi bi-facebook color-titulo1"></i></a>
+                    <a class="float" href="https://twitter.com/SESECCOaxaca"><i class="bi bi-twitter color-titulo1"></i></a>
+                    <a class="float" href="https://www.youtube.com/channel/UCGPW2yCI5ZtIbG08g28785g"><i class="bi bi-youtube color-titulo1"></i></a>
+
+                </div>
+                <!-- <img src="img/oaxaca.svg" alt="imagen" style="width: 60px;" class="d-inline-block" /> -->
+
+            </div>
+        </div>
+    </nav>
+
+    <br><br><br><br>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid font-dm">
+            <a class="navbar-brand ms-2" href="/">
+                <!-- <img src="img/oaxaca.svg" alt="imagen" style="width: 60px;" class="" /> -->
+                <img src="img/icono.svg" alt="imagen" style="width: 40px; height: 35px" class="" />
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+            <div class="collapse navbar-collapse text-center" id="navbarNavAltMarkup">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">INICIO</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            NOSOTROS
+          </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/quienes">QUIÉNES SOMOS</a></li>
+                            <li>
+                                <a class="dropdown-item" href="/quienes#estructuraOrganica">ESTRUCTURA ORGÁNICA</a>
+                            </li>
+                            <li><a class="dropdown-item" href="/quienes#mision">MISIÓN</a></li>
+                            <li><a class="dropdown-item" href="/quienes#vision">VISIÓN</a></li>
+                            <!-- <li>
+                                <a class="dropdown-item" href="/organodGobierno">ÓRGANO DE GOBIERNO</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="/comisionEjecutiva">COMISIÓN EJECUTIVA</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="/comiteCoordinador">COMITÉ COORDINADOR</a>
+                            </li> -->
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            NORMATIVIDAD
+          </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/marcoNormativo">MARCO NORMATIVO</a></li>
+                            <li>
+                                <a class="dropdown-item" href="/construccion">TRATADOS Y COMERCIOS INTERNACIONALES</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="/construccion">INTEGRIDAD PÚBLICA</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/saladPrensa">SALA DE PRENSA</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            TRANSPARENCIA
+          </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="transparencia">UNIDAD DE TRANSPARENCIA</a></li>
+                            <li><a class="dropdown-item" href="/actas">ACTAS DE SESIONES</a></li>
+                            <li>
+                                <a class="dropdown-item" href="/informacionFinanciera">INFORMACIÓN FINANCIERA</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="/construccion">INFORME DE GESTION</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="http://www.sesecc.oaxaca.gob.mx/wp-content/uploads/aviso-de-privacidad/aviso-de-privacidad-simplificado.pdf">AVISO DE PRIVACIDAD</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="/construccion">INFORMACION RELATIVA A LAS DENUNCIAS CIUDADANAS</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/construccion">PLATAFORMA DIGITAL ESTATAL</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contacto">CONTACTO</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <div class="nav-item text-nowrap float-end">
+                            <a class="nav-link px-3" href="/login"><i class="bi bi-person-check-fill color-icon h5"></i></a>
+
+                        </div>
+                    </li> -->
+
+                </ul>
+                <div>
+                    <a href="/login" class="btn btn-sm botonAcceder mx-3">ACCEDER</a>
+                    <!-- <a href="/login" class="btn btn-sm text-muted mx-3" style=" border-color: #a5a5a5;">ACCEDER</a> -->
+
+                </div>
+                <div class="mx-2 float-end">
+                    <a class="float" href="https://www.facebook.com/SESECCOaxaca/"><i class="bi bi-facebook color-titulo1"></i></a>
+                    <a class="float" href="https://twitter.com/SESECCOaxaca"><i class="bi bi-twitter color-titulo1"></i></a>
+                    <a class="float" href="https://www.youtube.com/channel/UCGPW2yCI5ZtIbG08g28785g"><i class="bi bi-youtube color-titulo1"></i></a>
+
+                </div>
+
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- <br><br><br><br>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid font-dm">
+            <a class="navbar-brand ms-2" href="/">
+                <img src="img/icono.svg" alt="imagen" style="width: 40px; height: 35px" class="" />
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+            <div class="collapse navbar-collapse text-center" id="navbarNavAltMarkup">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">INICIO</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            NOSOTROS
+          </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/quienes">QUIÉNES SOMOS</a></li>
+                            <li>
+                                <a class="dropdown-item" href="/quienes#estructuraOrganica">ESTRUCTURA ORGÁNICA</a>
+                            </li>
+                            <li><a class="dropdown-item" href="/quienes#mision">MISIÓN</a></li>
+                            <li><a class="dropdown-item" href="/quienes#vision">VISIÓN</a></li>
+                            
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            NORMATIVIDAD
+          </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/marcoNormativo">MARCO NORMATIVO</a></li>
+                            <li>
+                                <a class="dropdown-item" href="/construccion">TRATADOS Y COMERCIOS INTERNACIONALES</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="/construccion">INTEGRIDAD PÚBLICA</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/saladPrensa">SALA DE PRENSA</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            TRANSPARENCIA
+          </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="transparencia">UNIDAD DE TRANSPARENCIA</a></li>
+                            <li><a class="dropdown-item" href="/actas">ACTAS DE SESIONES</a></li>
+                            <li>
+                                <a class="dropdown-item" href="/informacionFinanciera">INFORMACIÓN FINANCIERA</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="/construccion">INFORME DE GESTION</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="http://www.sesecc.oaxaca.gob.mx/wp-content/uploads/aviso-de-privacidad/aviso-de-privacidad-simplificado.pdf">AVISO DE PRIVACIDAD</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="/construccion">INFORMACION RELATIVA A LAS DENUNCIAS CIUDADANAS</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/construccion">PLATAFORMA DIGITAL ESTATAL</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contacto">CONTACTO</a>
+                    </li>
+                    
+
+                </ul>
+                <div>
+                    <a href="/login" class="btn btn-sm mx-3" style="color: #46AAA6; border-color: #46AAA6;">ACCEDER</a>
+                   
+
+                </div>
+                <div class="mx-2 float-end">
+                    <a class="float" href="https://www.facebook.com/SESECCOaxaca/"><i class="bi bi-facebook color-titulo1"></i></a>
+                    <a class="float" href="https://twitter.com/SESECCOaxaca"><i class="bi bi-twitter color-titulo1"></i></a>
+                    <a class="float" href="https://www.youtube.com/channel/UCGPW2yCI5ZtIbG08g28785g"><i class="bi bi-youtube color-titulo1"></i></a>
+
+                </div>
+
+            </div>
+
+        </div>
+    </nav> -->
+
+
+
+    <div class="colorBG5">
+        <div class=" py-3">
+            <br><br>
+
+            <div class="container-fluid" style="max-width: 1000px;">
+                <div class="card text-dark bg-light mt-3">
+                    <div class=" text-center card-header h3 color-titulo1">Noticias</div>
+                </div>
+                <div class="row g-0">
+                    <% for(let i = l-1 ; i > l-4 ; i--)  { %>
+                        <div class="col-md-4 ">
+                            <div class="card m-3 ">
+                                <div>
+                                    <div class=" text-center my-0 p-2">
+                                        <img src="<%= results[i].ruta %>/<%= results[i].archivo %>" class="img-fluid rounded" alt="img" style="min-width: 100%;">
+                                    </div>
+                                    <div class="p-0 m-0">
+
+                                        <div class="pt-2 px-2" style="min-height: 200px;">
+                                            <h6 class="card-title">
+                                                <%= results[i].titulo %>
+                                            </h6>
+                                            <p class="card-text small">
+                                                <%= results[i].contenido %>
+                                            </p>
+
+
+
+                                        </div>
+
+                                        <div class=" my-0 mx-3">
+                                            <div class="mb-1">
+                                                <a href="<%= results[i].link %>" class="btn btn-outline-secondary float-end">
+                                                    <p class="card-text">Leer mas...</p>
+                                                </a>
+                                            </div>
+                                            <br>
+                                            <hr class=" mb-0">
+                                            <p class="card-text align-bottom mb-0 text-end"><small id="fecha<%= [i] %>" class="text-muted"></small></p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <script>
+                                var fecha = "<%= results[i].fecha %>",
+                                    year = fecha.substring(0, fecha.indexOf("-")),
+                                    month = fecha.substring(5, fecha.lastIndexOf("-")),
+                                    day = fecha.substring(fecha.lastIndexOf("-") + 1);
+                                console.log(fecha)
+                                var pfecha = document.getElementById('fecha<%= [i] %>');
+
+                                var mes = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+                                pfecha.textContent = day + " de " + mes[month - 1] + " del " + year;
+                            </script>
+                        </div>
+                        <% } %>
+                </div>
+                <div class="card text-center mx-3">
+
+                    <div class="card-body">
+                        <!-- <h5 class="card-title">Noticias anteriores</h5> -->
+                        <!-- <p class="card-text">Noticias anteriores</p> -->
+                        <a href="noticias2" class="btn text-white" style=" background-color: #46AAA6; ">Ver todas las publicaciones</a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="colorBG4 text-white p-2 text-center mb-3">
+        <h2>Sala de Prensa</h2>
+    </div>
+
+    <div class="bg-light">
+        <div class="container-fluid">
+            <div class="row g-0">
+                <% for(let i = l-1 ; i > l-4 ; i--)  { %>
+                    <div class="col-md-4 ">
+                        <div class=" text-center">
+                            <div>
+
+                                <div class="">
+                                    <a href="<%= results[i].link %>">
+                                        <div class="contenedor2">
+                                            <figure>
+                                                <img class="img-fluid" src="<%= results[i].ruta %>/<%= results[i].archivo %>" alt="img">
+                                                <div class="capa">
+                                                    <h4>
+                                                        <%= results[i].titulo %><br><i class="bi bi-plus-circle"></i></h4>
+                                                </div>
+                                            </figure>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <!-- <div class="contenedor">
+                                    <a href="<%= results[i].link %>">
+                                        <figure>
+
+                                            <img src="<%= results[i].ruta %>/<%= results[i].archivo %>" alt="img">
+
+                                            <div class="capa">
+
+                                                <p class="">
+
+                                                    Leer mas...
+                                                </p>
+
+                                            </div>
+                                        </figure>
+                                    </a>
+                                </div> -->
+
+
+                                <div class="px-4">
+                                    <div class="p-2" style="min-height: 130px;">
+                                        <!-- <h6 class="card-title">
+                                            <%= results[i].titulo %>
+                                        </h6> -->
+                                        <p class="card-title my-auto small">
+                                            <%= results[i].contenido %>
+                                        </p>
+                                    </div>
+
+                                    <div>
+
+
+                                        <div class=" mb-0">
+                                            <hr class=" mb-0 mx-3">
+                                            <p class=" align-bottom mb-0"><small id="fecha2<%= [i] %>" class="text-muted"></small></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <script>
+                            var fecha = "<%= results[i].fecha %>",
+                                year = fecha.substring(0, fecha.indexOf("-")),
+                                month = fecha.substring(5, fecha.lastIndexOf("-")),
+                                day = fecha.substring(fecha.lastIndexOf("-") + 1);
+                            console.log(fecha)
+                            var pfecha = document.getElementById('fecha2<%= [i] %>');
+
+                            var mes = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+                            pfecha.textContent = day + " de " + mes[month - 1] + " del " + year;
+                        </script>
+                    </div>
+                    <% } %>
+            </div>
+            <div class=" text-center mx-3">
+
+                <div class="mt-2">
+                    <!-- <h5 class="card-title">Noticias anteriores</h5> -->
+                    <!-- <p class="card-text">Noticias anteriores</p> -->
+                    <a href="noticias2" class="btn btn-primary">Ver todas las publicaciones</a>
+                </div>
+
+
+
+            </div>
+        </div>
+        <br>
+    </div>
+
+
+    <div class="container">
+        <!-- Portfolio Grid Items-->
+        <div class="row justify-content-center">
+            <!-- Portfolio Item 1-->
+
+            <div class="col-md-6 col-lg-4 mb-5">
+                <div class=" mx-2">
+                    <a href="#exampleModal-1" data-bs-toggle="modal">
+                        <div class="contenedor2">
+                            <figure>
+                                <img class="img-fluid" src="img/1.jpg" alt="img">
+                                <div class="capa">
+                                    <h2>Ética y valores para el trabajo ejemplo <br><i class="bi bi-plus-circle"></i></h2>
+                                </div>
+                            </figure>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+            <!-- Portfolio Item 2-->
+            <div class="col-md-6 col-lg-4 mb-5">
+                <div class=" mx-2">
+                    <a href="">
+                        <div class="contenedor2">
+                            <figure>
+                                <img class="img-fluid" src="img/2.jpg" alt="img">
+                                <div class="capa">
+                                    <h2>Titulo 2 <br><i class="bi bi-plus-circle"></i></h2>
+                                </div>
+                            </figure>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <!-- Portfolio Item 3-->
+            <div class="col-md-6 col-lg-4 mb-5">
+                <div class=" mx-2">
+                    <a href="">
+                        <div class="contenedor2">
+                            <figure>
+                                <img class="img-fluid" src="img/3.jpg" alt="img">
+                                <div class="capa">
+                                    <h2>Titulo 3 <br><i class="bi bi-plus-circle"></i></h2>
+                                </div>
+                            </figure>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <!-- footercontacto-->
+    <!-- <footer id="contact " class="contactosala ">
+        <div class="bg-secondary p-3 pb-2 text-center text-white ">
+            <h4>CONTACTANOS</h4>
+        </div>
+        <div class="background-overlay ">
+            <div class="container ">
+                <div class="row text-white ">
+                    <div class="col-md-4 my-auto mx-auto text-center ">
+                        <i class="bi bi-house " width="40 " height="40 "> Dirección</i>
+                        <h4>Colón No. 1128, Colonia Centro, Oaxaca de Juárez, Oaxaca.</h4>
+                    </div>
+                    <div class="col-md-4 my-auto mx-auto text-center ">
+                        <i class="bi bi-clock "> Horarios de atención</i>
+                        <h4>9:00 am - 17:00 pm <br> Lunes - Viernes</h4>
+                    </div>
+                    <div class="col-md-4 my-auto mx-auto text-center ">
+                        <div class=" p-1 ">
+
+                            <i class="bi bi-telephone "> Teléfonos</i>
+                            <h4>951 3516611</h4>
+                            <h4>951 2063111</h4>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class=" text-center bg-secondary p-3 pb-2 text-white ">
+            <h6>http://www.sesecc.oaxaca.gob.mx/</h6>
+        </div>
+    </footer> -->
+
+    <footer class="colorBG4 container-fluid">
+        <div class="row">
+            <div class="col-md-6" style="align-items: center;">
+                <div class=" p-5  my-auto text-white">
+                    <img src="img/SESECC_blanco hor.svg" alt="imagen" class="d-block w-100" />
+                    <br>
+                    <br>
+                    <div class="">
+                        <h4>
+                            Contactanos a traves de redes sociales
+                        </h4>
+                        <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique ipsam dolorum quisquam, nobis excepturi quas, alias dicta adipisci praesentium odit aliquid ipsum! Doloremque ab nobis quis est voluptatem dolorum optio!</p> -->
+                        <h4>
+                            <a class="float" href="https://www.facebook.com/SESECCOaxaca/"><i class="bi bi-facebook text-white"></i></a>
+                            <a class="float" href="https://twitter.com/SESECCOaxaca"><i class="bi bi-twitter text-white"></i></a>
+                            <a class="float" href="https://www.youtube.com/channel/UCGPW2yCI5ZtIbG08g28785g"><i class="bi bi-youtube text-white"></i></a>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-5 text-white">
+                    <p class="mb-0"><i class="bi bi-house"></i> Dirección</p>
+                    <h4>Colón No. 1128, Colonia Centro, Oaxaca de Juárez, Oaxaca.</h4>
+                    <hr>
+                    <p class="mb-0"><i class="bi bi-clock"></i> Horarios de atención</p>
+                    <h4>9:00 am - 17:00 pm <br> Lunes - Viernes</h4>
+                    <hr>
+                    <p class="mb-0"><i class="bi bi-telephone"></i> Teléfonos</p>
+                    <h4>951 3516611</h4>
+                    <h4>951 2063111</h4>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+    <script type="text/javascript ">
+        function mostrarAlert() { //nombre de la funcion 
+
+            if (document.getElementById("probar ").value === 'hola') { //probar es el id del elemento que lee por ejemplo un selec o un input
+
+                alert("Hola Mundo! ");
+            }
+        }
+    </script>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js " integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj " crossorigin="anonymous "></script>
+
+</body>
+
+</html>

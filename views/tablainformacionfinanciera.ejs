@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SESECC</title>
+    <link rel="icon" type="image/png" href="img/icono.png">
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="css/inicio.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" href="css/hover.css" />
+    <!--bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.1/css/dataTables.bootstrap5.min.css">
+    <!--font awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+</head>
+
+<body>
+    <!-- <div class="navbar-nav m-3">
+        <div class="nav-item text-nowrap text-end">
+            <form action="/logout" method="POST">
+                <div>
+                    <input type="text" id="user" name="user" value="<%= user.rol %>" hidden>
+                </div>
+                <% if(user) { %>
+                    <span class="badge bg-success"><%= user.rol %></span>
+                    <% } %>
+                        <input type="submit" class="link-dark" value="Cerrar Sesión">
+            </form>
+
+        </div>
+    </div> -->
+
+    <header class="navbar navbar-dark sticky-top colorBG4 flex-md-nowrap p-0 shadow-sm">
+        <img class="col-md-3 col-lg-2 py-2 mt-2 mb-2" src="img/SESECC_blancohor.svg" alt="" width="240">
+        <button class="navbar-toggler position-absolute d-md-none collapsed mt-3" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+           <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div type="text" class="col-md-6 col-lg-8 px-3 mt-2 mb-2 text-center" style="color: #ffff">
+            <h3></h3>
+        </div>
+        <div type="text" class="col-md-3 col-lg-2 px-3 mt-md-2 mb-2 text-end">
+            <div class="">
+                <a class="btn btn-primary3 btn-sm text-white" href="/selectTable">Regresar</a>
+
+            </div>
+
+        </div>
+    </header>
+
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center border-bottom">
+
+
+    </div>
+
+    <br>
+
+    <div class="container">
+        <!-- <a href="/create" class="btn btn-outline-primary mt-4 "><i class="fas fa-user-plus"></i></a> -->
+        <table id="users" class="table table-bordered table-striped text-center mt-4">
+            <thead>
+                <tr class="colorBG4 text-white">
+                    <th scope="col">ID</th>
+                    <th scope="col">TIPO</th>
+                    <th scope="col">AÑO</th>
+                    <th scope="col">CONCEPTO</th>
+                    <th scope="col">TRIMESTRE</th>
+                    <th scope="col">ACCIONES</th>
+                </tr>
+            </thead>
+            <tbody>
+
+
+            </tbody>
+        </table>
+        <br>
+
+        <br>
+        <!-- <form action="/logout" method="POST">
+            <div>
+                <input type="text" id="user" name="user" value="<%= user.rol %>" hidden>
+            </div>
+            <input type="submit" class="w-100 btn btn-lg btn-primary" value="Salir">
+        </form> -->
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.11.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.1/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.4/dist/sweetalert2.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#users').DataTable({
+                language: {
+                    url: '//cdn.datatables.net/plug-ins/1.11.3/i18n/es_es.json'
+                },
+                ajax: {
+                    url: "/dataTable/<%= user %>",
+                    dataSrc: ""
+                },
+                columns: [{
+                    data: "id"
+                }, {
+                    data: "tipo"
+                }, {
+                    data: "year"
+                }, {
+                    data: "concepto"
+                }, {
+                    data: "trimestre"
+                }, {
+                    data: null,
+                    "render": function(data) {
+                        return ' <a href="/edit1/<%= user %>/' + data.id + '" class="btn btn-outline-info"><i class="fas fa-edit"></i></a><a onclick="confirmar(' + data.id + ')" class="btn btn-outline-danger"><i class="fas fa-trash"></i></a>'
+                    }
+                }],
+                pageLength: 5,
+                lengthMenu: [
+                    [5, 10, 20, -1],
+                    [5, 10, 20, 'Todos']
+                ]
+            });
+        });
+
+        function confirmar(id) {
+            Swal.fire({
+                title: 'Confirma eliminar registro?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: `confirmar`,
+
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location = '/delete1/<%= user %>/' + id;
+                }
+            })
+        }
+    </script>
+
+</body>
+
+</html>
